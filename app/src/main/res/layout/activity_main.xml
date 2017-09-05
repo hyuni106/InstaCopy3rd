@@ -19,6 +19,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white">
+        <ImageView
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -33,16 +38,26 @@
             android:src="@drawable/insta_title"
             android:visibility="visible"
             android:layout_gravity="center"/>
-
-        <TextView
-            android:id="@+id/myProfileTitleTxt"
-            android:visibility="gone"
+        <ImageView
+            android:padding="5dp"
+            android:layout_gravity="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="0ilgu"
-            android:textSize="18sp"
-            android:layout_gravity="center"/>
+            android:src="@mipmap/ic_launcher_round"/>
+
+
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/myProfileTitleTxt"-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:text="0ilgu"-->
+            <!--android:textSize="18sp"-->
+            <!--android:layout_gravity="center"/>-->
+
 
     </FrameLayout>
 
@@ -57,7 +72,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:visibility="visible"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
             <!-- tools:visibility 는 preview에만 반영. -->
 
@@ -80,60 +95,61 @@
             <!--tools의 visibility를 나타냄으로써-->
             <!--작업의 편리함을 챙김-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
 
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:orientation="horizontal">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="FOLLOWING"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                <!--<FrameLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1">-->
 
-                </FrameLayout>
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="FOLLOWING"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--android:textSize="16sp"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:layout_gravity="center"/>-->
 
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="YOU"
-                        android:textColor="#5DA1E0"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                <!--</FrameLayout>-->
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="5dp"
-                        android:background="#5DA1E0"
-                        android:layout_gravity="bottom"/>
+                <!--<FrameLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1">-->
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="YOU"-->
+                        <!--android:textColor="#5DA1E0"-->
+                        <!--android:textSize="16sp"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:layout_gravity="center"/>-->
 
-                </FrameLayout>
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="5dp"-->
+                        <!--android:background="#5DA1E0"-->
+                        <!--android:layout_gravity="bottom"/>-->
+
+                <!--</FrameLayout>-->
 
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/divider_line"/>
 
-            <ListView
-                android:id="@+id/myNotiListView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></ListView>
+            <!--<ListView-->
+                <!--android:id="@+id/myNotiListView"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"></ListView>-->
 
 
         </LinearLayout>
