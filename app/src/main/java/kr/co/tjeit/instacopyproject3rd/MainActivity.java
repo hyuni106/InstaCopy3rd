@@ -3,7 +3,7 @@ package kr.co.tjeit.instacopyproject3rd;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
-
+//테스팅
 public class MainActivity extends AppCompatActivity {
 
     @Override
