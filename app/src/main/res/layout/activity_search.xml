@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="kr.co.tjeit.instacopyproject3rd.SearchActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="45dp"
+            android:layout_height="45dp" />
+
+        <EditText
+            android:id="@+id/searchEdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="검색"/>
+
+    </LinearLayout>
+
+    <TabHost
+        android:id="@+id/tabHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <fragment
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchTopFragment" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <fragment
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchPeopleFragment" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <fragment
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchTagsFragment" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <fragment
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchPlacesFragment" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+</LinearLayout>
