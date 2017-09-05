@@ -10,9 +10,10 @@
         android:background="#FFFFFF"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="7dp">
+        android:padding="10dp">
 
         <ImageView
+            android:id="@+id/profileImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@mipmap/ic_launcher_round" />
@@ -22,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="더조은컴퓨터"
+            android:text="이곳에 작성자 아이디가 표시됩니다."
             android:textColor="#1E5279" />
 
         <TextView
@@ -33,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2s" />
+            android:text="작성 2s" />
 
     </LinearLayout>
 
@@ -49,6 +50,7 @@
         android:padding="10dp">
 
         <ImageView
+            android:id="@+id/likeImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@mipmap/ic_launcher" />
@@ -83,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="10dp">
 
         <LinearLayout
             android:gravity="center"
@@ -101,7 +103,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="103 Likes" />
+                android:text="103 Likes (좋아요 갯수가 표시됩니다.)" />
 
 
         </LinearLayout>
@@ -111,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="댓글내용" />
+            android:text="이곳에 댓글내용과 작성자 이름이 출력됩니다." />
 
 
     </LinearLayout>
