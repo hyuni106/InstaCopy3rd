@@ -26,9 +26,10 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="50dp">
+        android:padding="30dp">
 
         <EditText
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_gray_round"
@@ -36,6 +37,7 @@
             android:padding="15dp" />
 
         <EditText
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -44,6 +46,7 @@
             android:padding="15dp" />
 
         <Button
+            android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -107,15 +110,16 @@
 
         </LinearLayout>
 
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/fbLoginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"/>
+
 
     </LinearLayout>
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/fbLoginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"/>
 
 
 
