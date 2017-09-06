@@ -2,6 +2,8 @@ package kr.co.tjeit.instacopyproject3rd;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -15,6 +17,7 @@ public class LoginActivity extends BaseActivity {
 
     CallbackManager cm; // 페이스북 콜백매니저
     private com.facebook.login.widget.LoginButton fbLoginBtn;
+    private android.widget.Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,14 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -41,6 +52,17 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void setValues() {
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
         cm = CallbackManager.Factory.create();
 
 
@@ -77,6 +99,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void bindViews() {
         this.fbLoginBtn = (LoginButton) findViewById(R.id.fbLoginBtn);
+        this.loginBtn = (Button) findViewById(R.id.loginBtn);
 
     }
 }

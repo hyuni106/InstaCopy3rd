@@ -14,21 +14,21 @@ import android.widget.TextView;
 import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
-import kr.co.tjeit.instacopyproject3rd.data.PostingData;
+import kr.co.tjeit.instacopyproject3rd.data.Post;
 
 
 /**
  * Created by user on 2017-08-17.
  */
 
-public class NewsfeedAdapter extends ArrayAdapter<PostingData> {
+public class NewsfeedAdapter extends ArrayAdapter<Post> {
 
 
     Context mContext;
-    List<PostingData> mList;
+    List<Post> mList;
     LayoutInflater inf;
 
-    public NewsfeedAdapter(Context context, List<PostingData> list) {
+    public NewsfeedAdapter(Context context, List<Post> list) {
         super(context, R.layout.newsfeed_list_item, list);
         mContext = context;
         mList = list;
@@ -45,19 +45,19 @@ public class NewsfeedAdapter extends ArrayAdapter<PostingData> {
         }
 
 
-        final PostingData data = mList.get(position);
+        final Post data = mList.get(position);
+//        final PostingData data = mList.get(position);
 
         TextView writerNickNameTxt = (TextView) row.findViewById(R.id.writerNickNameTxt);
         TextView contentTxt = (TextView) row.findViewById(R.id.contentTxt);
         ImageView replyBtnImg = (ImageView) row.findViewById(R.id.replyBtnImg);
 
-        contentTxt.setText(data.getContent());
-
-        writerNickNameTxt.setText(data.getWriterData().getNickName());
-
-
 
         return row;
     }
 
+    @Override
+    public int getCount() {
+        return 5;
+    }
 }
