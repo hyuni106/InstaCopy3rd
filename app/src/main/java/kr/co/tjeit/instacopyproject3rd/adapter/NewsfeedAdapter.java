@@ -52,7 +52,7 @@ public class NewsfeedAdapter extends ArrayAdapter<Post> {
 
         contentTxt.setText(data.getContent());
 
-        writerNickNameTxt.setText(data.getWriterData().getNickName());
+        writerNickNameTxt.setText(data.getWriterData().getName());
 
 
 
