@@ -33,7 +33,6 @@ public class WriteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_write_item, container, false);
-        this.writeLayout = (LinearLayout) v.findViewById(R.id.writeLayout);
         this.writeListView = (ListView) v.findViewById(R.id.writeListView);
 
 

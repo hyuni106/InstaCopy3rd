@@ -33,7 +33,6 @@ public class NewsfeedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_newsfeed_item, container, false);
-        this.newsfeedLayout = (LinearLayout) v.findViewById(R.id.newsfeedLayout);
         this.newsfeedListView = (ListView) v.findViewById(R.id.newsfeedListView);
 
 
