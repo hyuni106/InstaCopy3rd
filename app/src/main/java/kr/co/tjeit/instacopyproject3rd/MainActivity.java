@@ -205,18 +205,6 @@ public class MainActivity extends BaseActivity {
         this.myNotiListView = (ListView) findViewById(R.id.myNotiListView);
         this.writeLayout = (LinearLayout) findViewById(R.id.writeLayout);
         this.writeListView = (ListView) findViewById(R.id.writeListView);
-        this.searchLayout = (LinearLayout) findViewById(R.id.searchLayout);
-        this.tabHost = (TabHost) findViewById(R.id.tabHost);
-        this.tabcontent = (FrameLayout) findViewById(android.R.id.tabcontent);
-        this.tab4 = (LinearLayout) findViewById(R.id.tab4);
-        this.tab3 = (LinearLayout) findViewById(R.id.tab3);
-        this.tab2 = (LinearLayout) findViewById(R.id.tab2);
-        this.tab1 = (LinearLayout) findViewById(R.id.tab1);
-        this.tabs = (TabWidget) findViewById(android.R.id.tabs);
-        this.searchEdt = (EditText) findViewById(R.id.searchEdt);
-        this.backBtn = (ImageView) findViewById(R.id.backBtn);
-        this.newsfeedLayout = (LinearLayout) findViewById(R.id.newsfeedLayout);
-        this.newsfeedListView = (ListView) findViewById(R.id.newsfeedListView);
         this.titleFramLayout = (FrameLayout) findViewById(R.id.titleFramLayout);
         this.titleImg = (ImageView) findViewById(R.id.titleImg);
 
