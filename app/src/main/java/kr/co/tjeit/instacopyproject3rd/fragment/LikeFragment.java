@@ -8,9 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.FollowingAdapter;
 import kr.co.tjeit.instacopyproject3rd.adapter.MyPostAdapter;
+import kr.co.tjeit.instacopyproject3rd.data.Like;
+import kr.co.tjeit.instacopyproject3rd.data.User;
 
 /**
  * Created by the on 2017-09-05.
@@ -24,6 +29,7 @@ public class LikeFragment extends Fragment {
     ListView myPostListView;
     FollowingAdapter followingAdapter;
     MyPostAdapter myPostAdapter;
+    List<Like> likeList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -42,6 +48,9 @@ public class LikeFragment extends Fragment {
     }
 
     private void setValues() {
+
+        followingAdapter = new FollowingAdapter(getActivity(), likeList);
+        followingListView.setAdapter(followingAdapter);
 
 
     }

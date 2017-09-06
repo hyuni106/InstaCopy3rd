@@ -1,7 +1,6 @@
 package kr.co.tjeit.instacopyproject3rd;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
