@@ -40,7 +40,7 @@ public class SearchPlacesFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setupEvents();
-//        setValuse();
+        setValuse();
     }
 
     private void setValuse() {
@@ -49,6 +49,6 @@ public class SearchPlacesFragment extends Fragment {
     }
 
     private void setupEvents() {
-
+//        nearPlaceLayout 에 setOnClickListener 만들기
     }
 }

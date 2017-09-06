@@ -11,20 +11,20 @@ import android.widget.ArrayAdapter;
 import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
-import kr.co.tjeit.instacopyproject3rd.data.Like;
+import kr.co.tjeit.instacopyproject3rd.data.Post;
 
 /**
- * Created by the on 2017-09-05.
+ * Created by the on 2017-09-06.
  */
 
-public class MyPostAdapter extends ArrayAdapter<Like> {
+public class FollowNotifyAdatper extends ArrayAdapter<Post> {
 
     Context mContext;
-    List<Like> mList;
+    List<Post> mList;
     LayoutInflater inf;
 
-    public MyPostAdapter(Context context, List<Like> list) {
-        super(context, R.layout.mypost_fragment_list_item, list);
+    public FollowNotifyAdatper(Context context, List<Post> list) {
+        super(context, R.layout.follow_notify_list_item, list);
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
@@ -36,14 +36,12 @@ public class MyPostAdapter extends ArrayAdapter<Like> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         if (row == null) {
-            // 거의 반드시 딱 한줄만 if문 안에 들어옴.
-            row = inf.inflate(R.layout.mypost_fragment_list_item, null);
+            row = inf.inflate(R.layout.follow_notify_list_item, null);
         }
-
-//        Like data = mList.get(position);
 
         return row;
     }
+
     @Override
     public int getCount() {
         return 5;

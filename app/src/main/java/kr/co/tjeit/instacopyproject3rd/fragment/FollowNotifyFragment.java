@@ -12,30 +12,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
-import kr.co.tjeit.instacopyproject3rd.adapter.FollowingAdapter;
-import kr.co.tjeit.instacopyproject3rd.adapter.MyPostNotifyAdapter;
-import kr.co.tjeit.instacopyproject3rd.data.Like;
+import kr.co.tjeit.instacopyproject3rd.adapter.FollowNotifyAdatper;
+import kr.co.tjeit.instacopyproject3rd.data.Post;
 
 /**
- * Created by the on 2017-09-05.
+ * Created by suhyu on 2017-09-06.
  */
 
-public class LikeFragment extends Fragment {
-
-
-
-    ListView followingListView;
-    ListView myPostListView;
-    FollowingAdapter followingAdapter;
-    MyPostNotifyAdapter myPostNotifyAdapter;
-    List<Like> likeList = new ArrayList<>();
+public class FollowNotifyFragment extends Fragment {
+    FollowNotifyAdatper followNotifyAdatper;
+    List<Post> followerLikePost = new ArrayList<>();
+    private android.widget.ListView followerNotiListView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_like, container, false);
-        followingListView = (ListView) v.findViewById(R.id.followingListView);
-        myPostListView = (ListView) v.findViewById(R.id.myPostListView);
+        View v = inflater.inflate(R.layout.fragment_follow_notify, container, false);
+        this.followerNotiListView = (ListView) v.findViewById(R.id.followerNotiListView);
+
         return v;
     }
 
@@ -47,16 +41,11 @@ public class LikeFragment extends Fragment {
     }
 
     private void setValues() {
-
-        followingAdapter = new FollowingAdapter(getActivity(), likeList);
-        followingListView.setAdapter(followingAdapter);
-
-
+        followNotifyAdatper = new FollowNotifyAdatper(getActivity(), followerLikePost);
+        followerNotiListView.setAdapter(followNotifyAdatper);
     }
 
     private void setupEvents() {
 
     }
-
-
 }

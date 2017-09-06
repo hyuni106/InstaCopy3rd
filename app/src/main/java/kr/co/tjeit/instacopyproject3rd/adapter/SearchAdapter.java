@@ -42,10 +42,6 @@ public class SearchAdapter extends ArrayAdapter<Place> {
             row = inf.inflate(R.layout.fragment_search_item, null);
         }
 
-
-//        final Post data = mList.get(position);
-
-
         return row;
     }
 

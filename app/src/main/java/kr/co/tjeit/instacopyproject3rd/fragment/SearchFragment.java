@@ -27,8 +27,6 @@ import kr.co.tjeit.instacopyproject3rd.data.Place;
 
 public class SearchFragment extends Fragment {
 
-    SearchAdapter mAdapter;
-    List<Place> searchList = new ArrayList<>();
     private ListView newsfeedListView;
     private android.widget.LinearLayout newsfeedLayout;
     private android.widget.ImageView backBtn;
@@ -91,15 +89,29 @@ public class SearchFragment extends Fragment {
     }
 
     private void setValuse() {
-        mAdapter = new SearchAdapter(getActivity(), searchList);
-//        TODO - 메인화면에서 search 아이콘 클릭시 뻥하고 터짐..
-//        userListView.setAdapter(mAdapter);
 
     }
 
     private void setupEvents() {
-
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                searchEdt.setText("");
+                switch (tabId) {
+                    case "tab1":
+                        searchEdt.setHint("검색");
+                        break;
+                    case "tab2":
+                        searchEdt.setHint("사람 검색");
+                        break;
+                    case "tab3":
+                        searchEdt.setHint("해시태그 검색");
+                        break;
+                    case "tab4":
+                        searchEdt.setHint("장소 검색");
+                        break;
+                }
+            }
+        });
     }
-
-
 }

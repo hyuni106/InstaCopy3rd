@@ -11,21 +11,20 @@ import android.widget.ArrayAdapter;
 import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
-import kr.co.tjeit.instacopyproject3rd.data.Place;
-import kr.co.tjeit.instacopyproject3rd.data.Post;
+import kr.co.tjeit.instacopyproject3rd.data.User;
 
 /**
- * Created by the on 2017-09-06.
+ * Created by the on 2017-09-05.
  */
 
-public class NotifyAdatper extends ArrayAdapter<Post> {
+public class MyPostNotifyAdapter extends ArrayAdapter<User> {
 
     Context mContext;
-    List<Post> mList;
+    List<User> mList;
     LayoutInflater inf;
 
-    public NotifyAdatper(Context context, List<Post> list) {
-        super(context, R.layout.notify_list_item, list);
+    public MyPostNotifyAdapter(Context context, List<User> list) {
+        super(context, R.layout.mypost_notify_list_item, list);
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
@@ -37,12 +36,12 @@ public class NotifyAdatper extends ArrayAdapter<Post> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         if (row == null) {
-            row = inf.inflate(R.layout.notify_list_item, null);
+            // 거의 반드시 딱 한줄만 if문 안에 들어옴.
+            row = inf.inflate(R.layout.mypost_notify_list_item, null);
         }
 
         return row;
     }
-
     @Override
     public int getCount() {
         return 5;
