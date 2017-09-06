@@ -1,7 +1,6 @@
 package kr.co.tjeit.instacopyproject3rd.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,21 +14,20 @@ import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
-
+import kr.co.tjeit.instacopyproject3rd.data.User;
 
 /**
- * Created by user on 2017-08-17.
+ * Created by the on 2017-09-06.
  */
 
-public class NewsfeedAdapter extends ArrayAdapter<Post> {
-
+public class MyprofileAdapter extends ArrayAdapter<User> {
 
     Context mContext;
-    List<Post> mList;
+    List<User> mList;
     LayoutInflater inf;
 
-    public NewsfeedAdapter(Context context, List<Post> list) {
-        super(context, R.layout.newsfeed_list_item, list);
+    public MyprofileAdapter(Context context, List<User> list) {
+        super(context, R.layout.fragment_myprofile_item, list);
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
@@ -41,15 +39,12 @@ public class NewsfeedAdapter extends ArrayAdapter<Post> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         if ( row == null) {
-            row = inf.inflate(R.layout.newsfeed_list_item, null);
+            row = inf.inflate(R.layout.fragment_myprofile_item, null);
         }
 
 
 //        final Post data = mList.get(position);
 
-        TextView writerNickNameTxt = (TextView) row.findViewById(R.id.writerNickNameTxt);
-        TextView contentTxt = (TextView) row.findViewById(R.id.contentTxt);
-        ImageView replyBtnImg = (ImageView) row.findViewById(R.id.replyBtnImg);
 
 
         return row;

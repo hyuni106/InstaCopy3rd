@@ -8,7 +8,7 @@
     tools:context="kr.co.tjeit.instacopyproject3rd.LoginActivity">
 
     <LinearLayout
-        tools:visibility="gone"
+        tools:visibility="visible"
         android:gravity="center_vertical"
         android:background="#AA3744"
         android:layout_width="match_parent"
@@ -26,23 +26,25 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="45dp">
+        android:layout_marginTop="30dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <EditText
-            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_gray_round"
             android:hint="전화번호, 사용자 이름 또는 이메일"
+            android:inputType="text"
             android:padding="15dp" />
 
         <EditText
-            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/edittext_gray_round"
             android:hint="비밀번호"
+            android:inputType="textPassword"
             android:padding="15dp" />
 
         <Button
@@ -83,7 +85,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
 
             android:layout_marginTop="30dp"
             android:gravity="center"
@@ -115,12 +117,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp" />
 
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>
