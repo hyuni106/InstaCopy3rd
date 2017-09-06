@@ -7,4 +7,8 @@
     <color name="userNameText">#323232</color>
     <color name="userProfileText">#A7A7A7</color>
     <color name="nearPlaces">#3897F0</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="divider_line">#A0A0A0</color>
 </resources>
