@@ -26,7 +26,9 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="45dp">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_marginTop="30dp">
 
         <EditText
             android:inputType="text"
