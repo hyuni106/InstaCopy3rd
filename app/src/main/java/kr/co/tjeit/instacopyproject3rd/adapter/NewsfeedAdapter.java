@@ -45,19 +45,18 @@ public class NewsfeedAdapter extends ArrayAdapter<PostingData> {
         }
 
 
-        final PostingData data = mList.get(position);
+//        final PostingData data = mList.get(position);
 
         TextView writerNickNameTxt = (TextView) row.findViewById(R.id.writerNickNameTxt);
         TextView contentTxt = (TextView) row.findViewById(R.id.contentTxt);
         ImageView replyBtnImg = (ImageView) row.findViewById(R.id.replyBtnImg);
 
-        contentTxt.setText(data.getContent());
-
-        writerNickNameTxt.setText(data.getWriterData().getNickName());
-
-
 
         return row;
     }
 
+    @Override
+    public int getCount() {
+        return 5;
+    }
 }
