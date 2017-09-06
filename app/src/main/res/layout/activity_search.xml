@@ -55,7 +55,7 @@
                     <fragment
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchTopFragment" />
+                        class="kr.co.tjeit.instacopyproject3rd.fragment.SearchTopFragment"/>
 
                 </LinearLayout>
 
@@ -68,7 +68,7 @@
                     <fragment
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchPeopleFragment" />
+                        class="kr.co.tjeit.instacopyproject3rd.fragment.SearchPeopleFragment" />
 
                 </LinearLayout>
 
@@ -81,7 +81,7 @@
                     <fragment
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchTagsFragment" />
+                        class="kr.co.tjeit.instacopyproject3rd.fragment.SearchTagsFragment" />
 
                 </LinearLayout>
 
@@ -94,7 +94,7 @@
                     <fragment
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchPlacesFragment" />
+                        class="kr.co.tjeit.instacopyproject3rd.fragment.SearchPlacesFragment" />
 
                 </LinearLayout>
 
