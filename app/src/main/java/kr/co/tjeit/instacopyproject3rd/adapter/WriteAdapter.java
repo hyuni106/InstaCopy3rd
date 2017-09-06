@@ -25,7 +25,7 @@ public class WriteAdapter extends ArrayAdapter<Post> {
     LayoutInflater inf;
 
     public WriteAdapter(Context context, List<Post> list) {
-        super(context, R.layout.fragment_write_item, list);
+        super(context, R.layout.write_list_item, list);
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
@@ -37,7 +37,7 @@ public class WriteAdapter extends ArrayAdapter<Post> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         if (row == null) {
-            row = inf.inflate(R.layout.fragment_write_item, null);
+            row = inf.inflate(R.layout.write_list_item, null);
         }
 
 

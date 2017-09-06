@@ -4,20 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/newsfeedLayout"
+
+    <ListView
+        android:id="@+id/newsfeedListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-        <ListView
-            android:id="@+id/newsfeedListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></ListView>
-
-    </LinearLayout>
-
+        android:layout_height="match_parent"></ListView>
 
 
 </LinearLayout>
