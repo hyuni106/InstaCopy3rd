@@ -27,14 +27,12 @@ public class NewsfeedFragment extends Fragment {
     NewsfeedAdapter mAdapter;
     List<Post> postList = new ArrayList<>();
     private ListView newsfeedListView;
-    private android.widget.LinearLayout newsfeedLayout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_newsfeed_item, container, false);
         this.newsfeedListView = (ListView) v.findViewById(R.id.newsfeedListView);
-
 
         return v;
     }
@@ -49,7 +47,7 @@ public class NewsfeedFragment extends Fragment {
     private void setValuse() {
         mAdapter = new NewsfeedAdapter(getActivity(), postList);
 //        TODO - 메인화면에서 search 아이콘 클릭시 뻥하고 터짐..
-//        userListView.setAdapter(mAdapter);
+        newsfeedListView.setAdapter(mAdapter);
 
     }
 

@@ -229,7 +229,11 @@
 
                     <!-- tab1 레이아웃 화면 -->
 
-
+                    <LinearLayout
+                        android:id="@+id/tab1Layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
                         <ListView
                             android:id="@+id/myPicherListView"
@@ -238,139 +242,21 @@
 
                         </ListView>
 
-
+                    </LinearLayout>
 
                     <!-- tap2 레이아웃 화면 -->
 
                     <LinearLayout
-                        android:visibility="gone"
                         android:id="@+id/tab2Layout"
                         android:orientation="vertical"
+                        android:visibility="invisible"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <LinearLayout
+                        <ListView
+                            android:id="@+id/myPicNewsfeedListView"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="#FFFFFF"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="10dp">
-
-                            <ImageView
-                                android:id="@+id/myProfileMiniImg"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:src="@mipmap/ic_launcher_round" />
-
-                            <TextView
-                                android:textColor="@color/black"
-                                android:layout_marginLeft="5dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="본인 아이디가 들어올 자리"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
-
-
-                            <ImageView
-                                android:id="@+id/seeMoreBtn"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/myprofile_seemore"/>
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:id="@+id/myUploadImg"
-                            android:layout_width="match_parent"
-                            android:layout_height="350dp"
-                            android:src="@mipmap/ic_launcher" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="10dp">
-
-                            <ImageView
-                                android:id="@+id/likeImg"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:src="@drawable/heart_empty" />
-
-                            <ImageView
-                                android:id="@+id/replyBtnImg"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_marginLeft="15dp"
-                                android:src="@drawable/reply_empty" />
-
-                            <ImageView
-                                android:id="@+id/messenger_send_button"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_marginLeft="15dp"
-                                android:src="@drawable/message_icon" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
-
-                            <ImageView
-                                android:id="@+id/mySaveImg"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:src="@drawable/mysave_icon" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:background="#DDDDDD" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
-
-                            <LinearLayout
-                                android:gravity="center"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:src="@mipmap/ic_launcher_round"/>
-
-                                <TextView
-                                    android:textSize="13sp"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="103 Likes (좋아요 갯수가 표시됩니다.)" />
-
-
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/contentTxt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="5dp"
-                                android:text="이곳에 댓글내용과 작성자 이름이 출력됩니다." />
-
-                        </LinearLayout>
+                            android:layout_height="match_parent"></ListView>
 
                     </LinearLayout>
 

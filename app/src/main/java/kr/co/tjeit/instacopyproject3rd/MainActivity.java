@@ -76,7 +76,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setValues() {
-
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragFrame, new NewsfeedFragment())
+                .commit();
     }
 
     @Override

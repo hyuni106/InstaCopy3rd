@@ -11,38 +11,32 @@ import android.widget.ArrayAdapter;
 import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
-import kr.co.tjeit.instacopyproject3rd.data.Place;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
 
 /**
  * Created by the on 2017-09-06.
  */
 
-public class NotifyAdatper extends ArrayAdapter<Post> {
-
+public class GreedPictureAdapter extends ArrayAdapter<Post> {
     Context mContext;
     List<Post> mList;
     LayoutInflater inf;
 
-    public NotifyAdatper(Context context, List<Post> list) {
-        super(context, R.layout.notify_list_item, list);
+    public GreedPictureAdapter(Context context, List<Post> list) {
+        super(context, R.layout.list_mypic, list);
+
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
-
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
-        if (row == null) {
-            row = inf.inflate(R.layout.notify_list_item, null);
+        if ( row == null) {
+            row = inf.inflate(R.layout.list_mypic, null);
         }
-
-
-//        final Post data = mList.get(position);
-
 
         return row;
     }

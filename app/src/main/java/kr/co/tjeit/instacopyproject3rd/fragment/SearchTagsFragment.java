@@ -37,7 +37,7 @@ public class SearchTagsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setupEvents();
-//        setValues();
+        setValues();
     }
 
     private void setValues() {
