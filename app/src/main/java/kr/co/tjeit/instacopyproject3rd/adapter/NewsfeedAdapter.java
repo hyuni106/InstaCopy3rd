@@ -1,6 +1,7 @@
 package kr.co.tjeit.instacopyproject3rd.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -45,18 +46,18 @@ public class NewsfeedAdapter extends ArrayAdapter<Post> {
 
 
         final Post data = mList.get(position);
+//        final PostingData data = mList.get(position);
 
         TextView writerNickNameTxt = (TextView) row.findViewById(R.id.writerNickNameTxt);
         TextView contentTxt = (TextView) row.findViewById(R.id.contentTxt);
         ImageView replyBtnImg = (ImageView) row.findViewById(R.id.replyBtnImg);
 
-        contentTxt.setText(data.getContent());
-
-        writerNickNameTxt.setText(data.getWriterData().getName());
-
-
 
         return row;
     }
 
+    @Override
+    public int getCount() {
+        return 5;
+    }
 }

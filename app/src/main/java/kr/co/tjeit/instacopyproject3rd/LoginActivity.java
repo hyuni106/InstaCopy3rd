@@ -52,6 +52,17 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void setValues() {
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
         cm = CallbackManager.Factory.create();
 
 
