@@ -24,6 +24,9 @@ public class Post implements Serializable {
     public Post() {
     }
 
+    public Post(int i, String tempURL, String s, Calendar instance) {
+    }
+
     public int getPostingId() {
         return postingId;
     }

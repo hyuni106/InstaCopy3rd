@@ -40,9 +40,12 @@ public class MyPostAdapter extends ArrayAdapter<Like> {
             row = inf.inflate(R.layout.mypost_fragment_list_item, null);
         }
 
-        Like data = mList.get(position);
+//        Like data = mList.get(position);
 
         return row;
     }
-
+    @Override
+    public int getCount() {
+        return 5;
+    }
 }

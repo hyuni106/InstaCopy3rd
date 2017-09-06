@@ -44,6 +44,6 @@ public class SearchPeopleAdapter extends ArrayAdapter<User> {
 
     @Override
     public int getCount() {
-        return 10;
+        return 5;
     }
 }

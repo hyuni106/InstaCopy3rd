@@ -44,6 +44,6 @@ public class SearchTagsAdapter extends ArrayAdapter<Tag> {
 
     @Override
     public int getCount() {
-        return 10;
+        return 5;
     }
 }
