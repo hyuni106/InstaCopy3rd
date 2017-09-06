@@ -40,8 +40,13 @@ public class FollowingAdapter extends ArrayAdapter<Like> {
             row = inf.inflate(R.layout.following_fragment_list_item, null);
         }
 
-        Like data = mList.get(position);
+//        Like data = mList.get(position);
 
         return row;
+    }
+
+    @Override
+    public int getCount() {
+        return 5;
     }
 }

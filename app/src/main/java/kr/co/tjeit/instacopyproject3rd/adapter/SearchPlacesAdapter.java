@@ -44,6 +44,6 @@ public class SearchPlacesAdapter extends ArrayAdapter<Place>{
 
     @Override
     public int getCount() {
-        return 10;
+        return 5;
     }
 }
