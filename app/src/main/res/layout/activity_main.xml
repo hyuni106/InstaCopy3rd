@@ -50,16 +50,19 @@
 
 
         <fragment
+            android:id="@+id/newsfeedFrag"
             android:name="kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></fragment>
 
         <fragment
+            android:id="@+id/searchFrag"
             android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></fragment>
 
         <fragment
+            android:id="@+id/writeFrag"
             android:name="kr.co.tjeit.instacopyproject3rd.fragment.WriteFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -67,6 +70,7 @@
         </fragment>
 
         <fragment
+            android:id="@+id/notiFrag"
             android:name="kr.co.tjeit.instacopyproject3rd.fragment.NotifyFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -76,6 +80,7 @@
 
 
         <fragment
+            android:id="@+id/myProfileFrag"
             android:name="kr.co.tjeit.instacopyproject3rd.fragment.MyprofileFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
