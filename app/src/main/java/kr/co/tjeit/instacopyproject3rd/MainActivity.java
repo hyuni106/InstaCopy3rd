@@ -11,14 +11,14 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// 힝..
 import kr.co.tjeit.instacopyproject3rd.adapter.NewsfeedAdapter;
-import kr.co.tjeit.instacopyproject3rd.data.PostingData;
+import kr.co.tjeit.instacopyproject3rd.data.Post;
 import kr.co.tjeit.instacopyproject3rd.data.User;
 
 public class MainActivity extends BaseActivity {
 
-    List<PostingData> postingDataList = new ArrayList<>();
+    List<Post> postingDataList = new ArrayList<>();
     NewsfeedAdapter mNewsfeedAdapter;
     private android.widget.Button logoutBtn;
     private android.widget.ImageView titleImg;
