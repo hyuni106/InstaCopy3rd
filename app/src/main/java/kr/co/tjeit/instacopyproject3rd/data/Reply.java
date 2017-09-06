@@ -9,27 +9,24 @@ import java.util.List;
  * Created by user on 2017-08-17.
  */
 
-public class ReplyData implements Serializable {
+public class Reply implements Serializable {
 
     private int replyId;
     private String content;
     private Calendar createdAt;
 
-    private UserData writerData;
+    private User writerData;
+    private Post replyPost;
 
-    private List<UserData> likeUsers = new ArrayList<>();
+    private List<User> likeUser = new ArrayList<>();
 
-    private int parentReplyId;
-
-    public ReplyData() {
+    public Reply() {
     }
 
-    public ReplyData(int replyId, String content, Calendar createdAt, UserData writerData, int parentReplyId) {
+    public Reply(int replyId, String content, Calendar createdAt) {
         this.replyId = replyId;
         this.content = content;
         this.createdAt = createdAt;
-        this.writerData = writerData;
-        this.parentReplyId = parentReplyId;
     }
 
     public int getReplyId() {
@@ -56,28 +53,28 @@ public class ReplyData implements Serializable {
         this.createdAt = createdAt;
     }
 
-    public UserData getWriterData() {
+    public User getWriterData() {
         return writerData;
     }
 
-    public void setWriterData(UserData writerData) {
+    public void setWriterData(User writerData) {
         this.writerData = writerData;
     }
 
-    public List<UserData> getLikeUsers() {
-        return likeUsers;
+    public Post getReplyPost() {
+        return replyPost;
     }
 
-    public void setLikeUsers(List<UserData> likeUsers) {
-        this.likeUsers = likeUsers;
+    public void setReplyPost(Post replyPost) {
+        this.replyPost = replyPost;
     }
 
-    public int getParentReplyId() {
-        return parentReplyId;
+    public List<User> getLikeUser() {
+        return likeUser;
     }
 
-    public void setParentReplyId(int parentReplyId) {
-        this.parentReplyId = parentReplyId;
+    public void setLikeUser(List<User> likeUser) {
+        this.likeUser = likeUser;
     }
 }
 

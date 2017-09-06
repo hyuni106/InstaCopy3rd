@@ -7,14 +7,6 @@
     android:orientation="vertical"
     tools:context="kr.co.tjeit.instacopyproject3rd.MainActivity">
 
-    <Button
-        android:visibility="gone"
-        android:id="@+id/logoutBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="로그아웃"/>
-
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -71,7 +63,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:visibility="visible"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <!-- tools:visibility 는 preview에만 반영. -->
 
@@ -94,61 +86,60 @@
             <!--tools의 visibility를 나타냄으로써-->
             <!--작업의 편리함을 챙김-->
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
-            <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:orientation="horizontal">-->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-            <!--<FrameLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1">-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FOLLOWING"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"/>
 
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="FOLLOWING"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="16sp"-->
-            <!--android:textStyle="bold"-->
-            <!--android:layout_gravity="center"/>-->
+                </FrameLayout>
 
-            <!--</FrameLayout>-->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="YOU"
+                        android:textColor="#5DA1E0"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"/>
 
-            <!--<FrameLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1">-->
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="YOU"-->
-            <!--android:textColor="#5DA1E0"-->
-            <!--android:textSize="16sp"-->
-            <!--android:textStyle="bold"-->
-            <!--android:layout_gravity="center"/>-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="#5DA1E0"
+                        android:layout_gravity="bottom"/>
 
-            <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="5dp"-->
-            <!--android:background="#5DA1E0"-->
-            <!--android:layout_gravity="bottom"/>-->
-
-            <!--</FrameLayout>-->
+                </FrameLayout>
 
 
-            <!--</LinearLayout>-->
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/myNotiListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/divider_line"/>
-
-            <!--<ListView-->
-            <!--android:id="@+id/myNotiListView"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"></ListView>-->
 
 
         </LinearLayout>
