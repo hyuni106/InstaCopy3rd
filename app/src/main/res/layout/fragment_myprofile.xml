@@ -229,12 +229,7 @@
 
                     <!-- tab1 레이아웃 화면 -->
 
-                    <LinearLayout
-                        android:id="@+id/tab1Layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:visibility="gone">
+
 
                         <ListView
                             android:id="@+id/myPicherListView"
@@ -243,7 +238,7 @@
 
                         </ListView>
 
-                    </LinearLayout>
+
 
                     <!-- tap2 레이아웃 화면 -->
 
