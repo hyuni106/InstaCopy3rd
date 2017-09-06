@@ -27,7 +27,7 @@ public class SearchTagsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_search_people, container, false);
+        View v = inflater.inflate(R.layout.fragment_search_tags, container, false);
         this.tagListView = (ListView) v.findViewById(R.id.tagListView);
 
         return v;
@@ -37,7 +37,7 @@ public class SearchTagsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setupEvents();
-        setValues();
+//        setValues();
     }
 
     private void setValues() {

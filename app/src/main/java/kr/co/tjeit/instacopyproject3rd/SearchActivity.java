@@ -26,7 +26,7 @@ public class SearchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         bindViews();
-//        makeTabHost();
+        makeTabHost();
         setupEvents();
         setValues();
     }

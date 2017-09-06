@@ -40,7 +40,7 @@ public class SearchPlacesFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setupEvents();
-        setValuse();
+//        setValuse();
     }
 
     private void setValuse() {
