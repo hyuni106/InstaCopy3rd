@@ -45,8 +45,7 @@ public class NewsfeedAdapter extends ArrayAdapter<Post> {
         }
 
 
-        final Post data = mList.get(position);
-//        final PostingData data = mList.get(position);
+//        final Post data = mList.get(position);
 
         TextView writerNickNameTxt = (TextView) row.findViewById(R.id.writerNickNameTxt);
         TextView contentTxt = (TextView) row.findViewById(R.id.contentTxt);
