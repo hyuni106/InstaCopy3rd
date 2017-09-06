@@ -42,6 +42,7 @@ public class MainActivity extends BaseActivity {
         setupEvents();
         setValues();
 
+//        TODO - 메인 상단바(탭 5개 모두) 추가 할 것
     }
 
     @Override
