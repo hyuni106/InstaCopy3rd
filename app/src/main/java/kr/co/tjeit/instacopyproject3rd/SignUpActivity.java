@@ -24,7 +24,7 @@ public class SignUpActivity extends BaseActivity {
         nextTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                TODO - 합치고나서
+//                TODO - 합치고나서 실행
 //                Intent intent = new Intent(mContext, UserNameMakeActivity.class);
 //                startActivity(intent);
             }
