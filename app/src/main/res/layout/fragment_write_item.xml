@@ -5,6 +5,58 @@
     android:orientation="vertical">
 
 
+    <FrameLayout
+        android:id="@+id/titleFramLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+               android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:src="@mipmap/ic_launcher_round" />
+
+            <TextView
+                android:id="@+id/menuTxt"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="갤러리 *" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:padding="5dp"
+
+                android:text="다음" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/divider_line" />
+
+
+    </FrameLayout>
+
     <TabHost
         android:id="@+id/tabHost"
         android:layout_width="match_parent"
@@ -28,8 +80,9 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <!--갤러리 Fragment-->
                     <fragment
-                        class="kr.co.tjeit.instacopyproject3rd.fragment.SearchTopFragment"
+                        class="kr.co.tjeit.instacopyproject3rd.fragment.WriteGalleryFragment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
@@ -41,6 +94,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <!--사진(카메라) Fragment-->
                     <fragment
                         class="kr.co.tjeit.instacopyproject3rd.fragment.SearchPeopleFragment"
                         android:layout_width="match_parent"
@@ -54,6 +108,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <!--동영상 Fragment-->
                     <fragment
                         class="kr.co.tjeit.instacopyproject3rd.fragment.SearchTagsFragment"
                         android:layout_width="match_parent"
