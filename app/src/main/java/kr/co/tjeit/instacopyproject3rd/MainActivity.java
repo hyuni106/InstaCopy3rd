@@ -47,7 +47,6 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
-
     }
 
     @Override
@@ -69,8 +68,5 @@ public class MainActivity extends BaseActivity {
         this.newsfeedLayout = (LinearLayout) findViewById(R.id.newsfeedLayout);
         this.newsfeedListView = (ListView) findViewById(R.id.newsfeedListView);
         this.titleImg = (ImageView) findViewById(R.id.titleImg);
-        this.logoutBtn = (Button) findViewById(R.id.logoutBtn);
     }
 }
-
-
