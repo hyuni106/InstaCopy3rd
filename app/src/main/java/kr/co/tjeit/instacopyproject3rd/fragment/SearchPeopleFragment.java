@@ -42,7 +42,9 @@ public class SearchPeopleFragment extends Fragment {
 
     private void setValuse() {
         mAdapter = new SearchPeopleAdapter(getActivity(), userList);
-        userListView.setAdapter(mAdapter);
+//        TODO - 메인화면에서 search 아이콘 클릭시 뻥하고 터짐..
+//        userListView.setAdapter(mAdapter);
+
     }
 
     private void setupEvents() {
