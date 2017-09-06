@@ -10,8 +10,6 @@ import kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NotifyFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.SearchFragment;
 
-// 힝..
-
 public class MainActivity extends BaseActivity {
 
     private android.widget.ImageView titleImg;
