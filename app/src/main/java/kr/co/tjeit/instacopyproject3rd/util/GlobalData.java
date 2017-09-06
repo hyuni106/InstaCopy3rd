@@ -16,7 +16,6 @@ public class GlobalData {
 
 //    실제 사용은 서버에서 받아올 예정. 아래에 기록된 건 테스트용 더미 데이터입니다.
 
-
     public static List<User> userList = new ArrayList<>();
     public static List<Post> postingList = new ArrayList<>();
 
