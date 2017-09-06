@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -42,6 +44,16 @@ public class FollowingAdapter extends ArrayAdapter<Like> {
 
         Like data = mList.get(position);
 
+        ImageView roundImg = (ImageView) row.findViewById(R.id.roundImg);
+        ImageView photoImg = (ImageView) row.findViewById(R.id.photoImg);
+        TextView userLikeTxt = (TextView) row.findViewById(R.id.userLikeTxt);
+
+
         return row;
+    }
+
+    @Override
+    public int getCount() {
+        return 5;
     }
 }

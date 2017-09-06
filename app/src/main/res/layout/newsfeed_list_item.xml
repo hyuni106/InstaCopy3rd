@@ -53,14 +53,21 @@
             android:id="@+id/likeImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/heart_empty" />
 
         <ImageView
             android:id="@+id/replyBtnImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="15dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/reply_empty" />
+
+        <ImageView
+            android:id="@+id/messenger_send_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/message_icon" />
 
         <TextView
             android:layout_width="0dp"
@@ -68,9 +75,10 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/mySaveImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/mysave_icon" />
 
     </LinearLayout>
 
