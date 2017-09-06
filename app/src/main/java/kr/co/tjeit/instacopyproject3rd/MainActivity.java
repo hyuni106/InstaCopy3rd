@@ -49,6 +49,7 @@ public class MainActivity extends BaseActivity {
     private LinearLayout searchLayout;
     private LinearLayout notifyLayout;
     private FrameLayout titleFramLayout;
+    private ListView writeListView;
 
 
     @Override
@@ -99,6 +100,9 @@ public class MainActivity extends BaseActivity {
 
                     newsfeedLayout.setVisibility(View.VISIBLE);
                     searchLayout.setVisibility(View.GONE);
+                    writeLayout.setVisibility(View.GONE);
+                    notifyLayout.setVisibility(View.GONE);
+                    myProfileLayout.setVisibility(View.GONE);
 
 
                     newsfeedBtn.setImageResource(R.drawable.newsfeed_on);
@@ -109,9 +113,12 @@ public class MainActivity extends BaseActivity {
 
                 } else if (v.getId() == R.id.searchBtn) {
 
-                    titleFramLayout.setVisibility(View.GONE);
+                    titleFramLayout.setVisibility(View.GONE); // 검색화면의 경우 상단에 프레임레이아웃 사라짐 (실질적으로 이 프레임 레이아웃은 뉴스피드 페이지에서만 나옴(main))
                     newsfeedLayout.setVisibility(View.GONE);
                     searchLayout.setVisibility(View.VISIBLE);
+                    writeLayout.setVisibility(View.GONE);
+                    notifyLayout.setVisibility(View.GONE);
+                    myProfileLayout.setVisibility(View.GONE);
 
                     newsfeedBtn.setImageResource(R.drawable.newsfeed_off);
                     searchBtn.setImageResource(R.drawable.search_on);
@@ -121,6 +128,13 @@ public class MainActivity extends BaseActivity {
 
                 } else if (v.getId() == R.id.writeBtn) {
 
+                    titleFramLayout.setVisibility(View.GONE);
+                    newsfeedLayout.setVisibility(View.GONE);
+                    searchLayout.setVisibility(View.GONE);
+                    writeLayout.setVisibility(View.VISIBLE);
+                    notifyLayout.setVisibility(View.GONE);
+                    myProfileLayout.setVisibility(View.GONE);
+
                     newsfeedBtn.setImageResource(R.drawable.newsfeed_off);
                     searchBtn.setImageResource(R.drawable.search_off);
                     writeBtn.setImageResource(R.drawable.write);
@@ -129,6 +143,13 @@ public class MainActivity extends BaseActivity {
 
                 } else if (v.getId() == R.id.notifyBtn) {
 
+                    titleFramLayout.setVisibility(View.GONE);
+                    newsfeedLayout.setVisibility(View.GONE);
+                    searchLayout.setVisibility(View.GONE);
+                    writeLayout.setVisibility(View.GONE);
+                    notifyLayout.setVisibility(View.VISIBLE);
+                    myProfileLayout.setVisibility(View.GONE);
+
                     newsfeedBtn.setImageResource(R.drawable.newsfeed_off);
                     searchBtn.setImageResource(R.drawable.search_off);
                     writeBtn.setImageResource(R.drawable.write);
@@ -136,6 +157,13 @@ public class MainActivity extends BaseActivity {
                     myprofileBtn.setImageResource(R.drawable.profile_off);
 
                 } else if (v.getId() == R.id.myprofileBtn) {
+
+                    titleFramLayout.setVisibility(View.GONE);
+                    newsfeedLayout.setVisibility(View.GONE);
+                    searchLayout.setVisibility(View.GONE);
+                    writeLayout.setVisibility(View.GONE);
+                    notifyLayout.setVisibility(View.GONE);
+                    myProfileLayout.setVisibility(View.VISIBLE);
 
                     newsfeedBtn.setImageResource(R.drawable.newsfeed_off);
                     searchBtn.setImageResource(R.drawable.search_off);
@@ -175,6 +203,8 @@ public class MainActivity extends BaseActivity {
         this.myPostListView = (ListView) findViewById(R.id.myPostListView);
         this.notifyLayout = (LinearLayout) findViewById(R.id.notifyLayout);
         this.myNotiListView = (ListView) findViewById(R.id.myNotiListView);
+        this.writeLayout = (LinearLayout) findViewById(R.id.writeLayout);
+        this.writeListView = (ListView) findViewById(R.id.writeListView);
         this.searchLayout = (LinearLayout) findViewById(R.id.searchLayout);
         this.tabHost = (TabHost) findViewById(R.id.tabHost);
         this.tabcontent = (FrameLayout) findViewById(android.R.id.tabcontent);

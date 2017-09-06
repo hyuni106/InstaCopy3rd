@@ -12,32 +12,33 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white">
+
         <ImageView
-            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round"/>
+            android:padding="5dp"
+            android:src="@mipmap/ic_launcher_round" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/divider_line"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="bottom"
+            android:background="@color/divider_line" />
 
         <ImageView
             android:id="@+id/titleImg"
             android:layout_width="100dp"
             android:layout_height="40dp"
+            android:layout_gravity="center"
             android:src="@drawable/insta_title"
-            android:visibility="visible"
-            android:layout_gravity="center"/>
+            android:visibility="visible" />
+
         <ImageView
-            android:padding="5dp"
-            android:layout_gravity="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round"/>
-
+            android:layout_gravity="right"
+            android:padding="5dp"
+            android:src="@mipmap/ic_launcher_round" />
 
 
     </FrameLayout>
@@ -75,8 +76,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/backBtn"
@@ -87,7 +88,7 @@
                     android:id="@+id/searchEdt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="검색"/>
+                    android:hint="검색" />
 
             </LinearLayout>
 
@@ -118,9 +119,9 @@
                             android:orientation="vertical">
 
                             <fragment
+                                android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchTopFragment"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchTopFragment" />
+                                android:layout_height="match_parent" />
 
                         </LinearLayout>
 
@@ -131,9 +132,9 @@
                             android:orientation="vertical">
 
                             <fragment
+                                android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchPeopleFragment"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchPeopleFragment" />
+                                android:layout_height="match_parent" />
 
                         </LinearLayout>
 
@@ -144,9 +145,9 @@
                             android:orientation="vertical">
 
                             <fragment
+                                android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchTagsFragment"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchTagsFragment" />
+                                android:layout_height="match_parent" />
 
                         </LinearLayout>
 
@@ -157,9 +158,9 @@
                             android:orientation="vertical">
 
                             <fragment
+                                android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchPlacesFragment"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:name="kr.co.tjeit.instacopyproject3rd.fragment.SearchPlacesFragment" />
+                                android:layout_height="match_parent" />
 
                         </LinearLayout>
 
@@ -170,13 +171,31 @@
         </LinearLayout>
 
 
+        <!-- 가운데 아이콘 뭘로 해야함?-->
+        <LinearLayout
+            android:id="@+id/writeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+
+            <ListView
+                android:id="@+id/writeListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+
+        </LinearLayout>
+
+
         <LinearLayout
             android:id="@+id/notifyLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:visibility="gone"
-            tools:visibility="gone"
-            android:orientation="vertical">
+            tools:visibility="gone">
 
 
             <LinearLayout
@@ -192,11 +211,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="FOLLOWING"
                         android:textColor="@color/black"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                        android:textStyle="bold" />
 
                 </FrameLayout>
 
@@ -204,20 +223,21 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="YOU"
                         android:textColor="#5DA1E0"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
-                        android:background="#5DA1E0"
-                        android:layout_gravity="bottom"/>
+                        android:layout_gravity="bottom"
+                        android:background="#5DA1E0" />
 
                 </FrameLayout>
 
@@ -232,7 +252,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/divider_line"/>
+                android:background="@color/divider_line" />
 
 
         </LinearLayout>
@@ -449,7 +469,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/newsfeed_on"/>
+            android:src="@drawable/newsfeed_on" />
 
         <ImageView
             android:id="@+id/searchBtn"
@@ -457,7 +477,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/search_off"/>
+            android:src="@drawable/search_off" />
 
         <ImageView
             android:id="@+id/writeBtn"
@@ -465,7 +485,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/write"/>
+            android:src="@drawable/write" />
 
         <ImageView
             android:id="@+id/notifyBtn"
@@ -473,7 +493,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/notify_off"/>
+            android:src="@drawable/notify_off" />
 
         <ImageView
             android:id="@+id/myprofileBtn"
@@ -481,10 +501,9 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:padding="10dp"
-            android:src="@drawable/profile_off"/>
+            android:src="@drawable/profile_off" />
 
     </LinearLayout>
-
 
 
 </LinearLayout>
