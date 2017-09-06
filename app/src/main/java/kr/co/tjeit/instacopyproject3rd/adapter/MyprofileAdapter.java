@@ -42,11 +42,6 @@ public class MyprofileAdapter extends ArrayAdapter<User> {
             row = inf.inflate(R.layout.myprofile_list_item, null);
         }
 
-
-//        final Post data = mList.get(position);
-
-
-
         return row;
     }
 

@@ -40,10 +40,6 @@ public class NotifyAdatper extends ArrayAdapter<Post> {
             row = inf.inflate(R.layout.notify_list_item, null);
         }
 
-
-//        final Post data = mList.get(position);
-
-
         return row;
     }
 
