@@ -27,7 +27,7 @@ public class MyprofileAdapter extends ArrayAdapter<User> {
     LayoutInflater inf;
 
     public MyprofileAdapter(Context context, List<User> list) {
-        super(context, R.layout.fragment_myprofile_item, list);
+        super(context, R.layout.myprofile_list_item, list);
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
@@ -39,7 +39,7 @@ public class MyprofileAdapter extends ArrayAdapter<User> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         if ( row == null) {
-            row = inf.inflate(R.layout.fragment_myprofile_item, null);
+            row = inf.inflate(R.layout.myprofile_list_item, null);
         }
 
 

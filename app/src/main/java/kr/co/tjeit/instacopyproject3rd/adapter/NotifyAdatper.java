@@ -25,7 +25,7 @@ public class NotifyAdatper extends ArrayAdapter<Post> {
     LayoutInflater inf;
 
     public NotifyAdatper(Context context, List<Post> list) {
-        super(context, R.layout.fragment_notify_item, list);
+        super(context, R.layout.notify_list_item, list);
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
@@ -37,7 +37,7 @@ public class NotifyAdatper extends ArrayAdapter<Post> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         if (row == null) {
-            row = inf.inflate(R.layout.fragment_notify_item, null);
+            row = inf.inflate(R.layout.notify_list_item, null);
         }
 
 

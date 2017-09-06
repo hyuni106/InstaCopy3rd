@@ -33,8 +33,6 @@ public class NotifyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_notify_item, container, false);
-        this.notifyLayout = (LinearLayout) v.findViewById(R.id.notifyLayout);
-        this.myNotiListView = (ListView) v.findViewById(R.id.myNotiListView);
 
 
         return v;

@@ -57,34 +57,11 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bindViews();
-        makeTabHost();
         setupEvents();
         setValues();
 
     }
 
-    private void makeTabHost() {
-        // 탭호스트를 사용하기 위해서는 반드시 setup을 먼저 진행해야함
-        tabHost.setup();
-
-        // 탭에 들어가는 버튼(tabspec)을 생성하는 작업
-        // 구별자(tab1), 표시(지역) 세팅
-        TabHost.TabSpec ts1 = tabHost.newTabSpec("tab1").setIndicator("인기 검색 결과");
-        ts1.setContent(R.id.tab1);
-        tabHost.addTab(ts1);
-
-        TabHost.TabSpec ts2 = tabHost.newTabSpec("tab2").setIndicator("사람");
-        ts2.setContent(R.id.tab2);
-        tabHost.addTab(ts2);
-
-        TabHost.TabSpec ts3 = tabHost.newTabSpec("tab3").setIndicator("태그");
-        ts3.setContent(R.id.tab3);
-        tabHost.addTab(ts3);
-
-        TabHost.TabSpec ts4 = tabHost.newTabSpec("tab4").setIndicator("장소");
-        ts4.setContent(R.id.tab4);
-        tabHost.addTab(ts4);
-    }
 
 
     @Override
