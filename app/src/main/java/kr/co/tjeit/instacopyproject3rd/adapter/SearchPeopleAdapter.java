@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
+import kr.co.tjeit.instacopyproject3rd.data.User;
 
 /**
  * Created by the on 2017-09-05.
