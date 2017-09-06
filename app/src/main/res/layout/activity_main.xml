@@ -45,8 +45,6 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher_round"/>
 
-</android.support.constraint.ConstraintLayout>
-
 
 
         <!--<TextView-->
