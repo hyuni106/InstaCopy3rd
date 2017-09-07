@@ -62,6 +62,8 @@ public class SignUpActivity extends BaseActivity {
                     Toast.makeText(mContext, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
                 } else if (!(nameEdt.getText().toString().equals("")) && !(passwordEdt.getText().toString().equals(""))) {
                     Intent intent = new Intent(mContext, SignUpCheckActivity.class);
+                    intent.putExtra("name", nameEdt.getText().toString());
+                    intent.putExtra("pw", passwordEdt.getText().toString());
                     startActivity(intent);
                 }
             }
