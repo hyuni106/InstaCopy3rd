@@ -11,6 +11,7 @@ import kr.co.tjeit.instacopyproject3rd.fragment.MyprofileFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NotifyFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.SearchFragment;
+import kr.co.tjeit.instacopyproject3rd.fragment.WriteFragment;
 
 // 힝..
 
@@ -67,6 +68,12 @@ public class MainActivity extends BaseActivity {
                                 .replace(R.id.fragFrame, new SearchFragment())
                                 .commit();
                         break;
+                    case R.id.writeBtn:
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragFrame, new WriteFragment())
+                                .commit();
+                        break;
                     case R.id.notifyBtn:
                         getSupportFragmentManager()
                                 .beginTransaction()
@@ -79,12 +86,21 @@ public class MainActivity extends BaseActivity {
                                 .replace(R.id.fragFrame, new MyprofileFragment())
                                 .commit();
                         break;
+
+                }
+                // writeBtn 이 눌렸을 경우에만 최상단 프레임레이아웃 감춰줌
+                if (v.getId() == writeBtn.getId()) {
+                    titleFramLayout.setVisibility(View.GONE);
+                }
+                else {
+                    titleFramLayout.setVisibility(View.VISIBLE);
                 }
             }
         };
 
         newsfeedBtn.setOnClickListener(fragView);
         searchBtn.setOnClickListener(fragView);
+        writeBtn.setOnClickListener(fragView);
         notifyBtn.setOnClickListener(fragView);
         myprofileBtn.setOnClickListener(fragView);
 
