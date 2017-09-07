@@ -34,7 +34,7 @@ public class ServerUtil {
 
     // 마이페이지
     public static void mypage(final Context context, String userid, final JsonResponseHandler handler) {
-        String url = BASE_URL+"mobile/mypage";
+        String url = BASE_URL+"insta/mypage";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();
@@ -74,11 +74,11 @@ public class ServerUtil {
 
     // 로그인
     public static void sign_in(final Context context, String userid, String pw, final JsonResponseHandler handler) {
-        String url = BASE_URL+"mobile/sign_in";
+        String url = BASE_URL+"insta/sign_in";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();
-        data.put("user_id", userid);
+        data.put("userId", userid);
         data.put("password", pw);
 
         AsyncHttpRequest.post(context, url,  data, true, new AsyncHttpRequest.HttpResponseHandler() {
@@ -114,15 +114,14 @@ public class ServerUtil {
     }
 
     // 회원 가입
-    public static void sign_up(final Context context, String userid, String pw, String name, String profileURL, final JsonResponseHandler handler) {
-        String url = BASE_URL+"mobile/sign_up";
+    public static void sign_up(final Context context, String userid, String pw, String name, final JsonResponseHandler handler) {
+        String url = BASE_URL+"insta/sign_up";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();
-        data.put("user_id", userid);
+        data.put("userId", userid);
         data.put("password", pw);
         data.put("name", name);
-        data.put("profile_url", profileURL);
 
         AsyncHttpRequest.post(context, url,  data, true, new AsyncHttpRequest.HttpResponseHandler() {
 
@@ -158,7 +157,7 @@ public class ServerUtil {
 
     // 회원 가입시 아이디 중복 체크
     public static void check_dupl_id(final Context context, final String id, final JsonResponseHandler handler) {
-        String url = BASE_URL+"mobile/check_dupl_id";
+        String url = BASE_URL+"insta/check_dupl_id";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();

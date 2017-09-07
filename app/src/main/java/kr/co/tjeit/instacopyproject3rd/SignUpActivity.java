@@ -42,6 +42,8 @@ public class SignUpActivity extends BaseActivity {
                 }
                 else if (!(nameEdt.getText().toString().equals("")) && !(passwordEdt.getText().toString().equals(""))) {
                     Intent intent = new Intent(mContext, SignUpCheckActivity.class);
+                    intent.putExtra("name", nameEdt.getText().toString());
+                    intent.putExtra("pw", passwordEdt.getText().toString());
                     startActivity(intent);
                 }
             }

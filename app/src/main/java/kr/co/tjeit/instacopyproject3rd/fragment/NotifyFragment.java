@@ -87,12 +87,10 @@ public class NotifyFragment extends Fragment {
 
 
     private void setValuse() {
-
         mainViewPager.setAdapter(new MyViewPagerAdapter(getChildFragmentManager()));
     }
 
     private void setupEvents() {
-
 
         View.OnClickListener pageChangeListener = new View.OnClickListener() {
             @Override
@@ -126,7 +124,6 @@ public class NotifyFragment extends Fragment {
 
             }
         });
-
     }
 
     class MyViewPagerAdapter extends FragmentPagerAdapter {
