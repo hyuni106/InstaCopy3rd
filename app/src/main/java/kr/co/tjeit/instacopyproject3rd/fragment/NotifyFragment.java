@@ -89,21 +89,16 @@ public class NotifyFragment extends Fragment {
     private void setValuse() {
 
         mainViewPager.setAdapter(new MyViewPagerAdapter(getChildFragmentManager()));
-//        mainViewPager.setCurrentItem(1);
     }
 
     private void setupEvents() {
+
+
         View.OnClickListener pageChangeListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int pageNum = Integer.parseInt(v.getTag().toString());
                 mainViewPager.setCurrentItem(pageNum);
-
-                if (v.getId() == R.id.tab1) {
-
-                } else if (v.getId() == R.id.tab2) {
-                    mainViewPager.setCurrentItem(1);
-                }
 
 
             }
@@ -123,9 +118,6 @@ public class NotifyFragment extends Fragment {
 
                 // 선택된 탭으로 이동
                 tabHost.setCurrentTab(position);
-
-
-
 
             }
 
