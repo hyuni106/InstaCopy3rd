@@ -112,7 +112,7 @@ public class MyprofileFragment extends Fragment {
 
     class ImageAdapter extends BaseAdapter {
         private Context mContext;
-        List<String> imgList = new ArrayList<>();
+//        List<String> imgList = new ArrayList<>();
 
         // Constructor
         public ImageAdapter(Context c) {
@@ -120,7 +120,7 @@ public class MyprofileFragment extends Fragment {
         }
 
         public int getCount() {
-            return imgList.size();
+            return mThumbIds.length;
         }
 
         public Object getItem(int position) {
@@ -137,7 +137,7 @@ public class MyprofileFragment extends Fragment {
 
             if (convertView == null) {
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+                imageView.setLayoutParams(new GridView.LayoutParams(130, 130));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setPadding(0, 0, 0, 0);
             } else {
