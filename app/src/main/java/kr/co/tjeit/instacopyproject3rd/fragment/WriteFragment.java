@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -162,7 +161,7 @@ public class WriteFragment extends Fragment {
 
             if (position == 0) {
 
-                return new WriteGalleryFragment();
+                return new WritePostFragment();
             } else if (position == 1)
                 return new MyprofileFragment();
             else {
