@@ -120,7 +120,7 @@ public class NotifyFragment extends Fragment {
                 tabHost.setCurrentTab(position);
 
             }
-
+//
             @Override
             public void onPageScrollStateChanged(int state) {
 
