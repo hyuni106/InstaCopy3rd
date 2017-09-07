@@ -1,6 +1,7 @@
 package kr.co.tjeit.instacopyproject3rd.util;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,6 +32,46 @@ public class ServerUtil {
 //    1. 원하는 기능을 제공하는 API 주소 알아내기
 //    2. 해당 기능을 사용하기 위해 우리가 제공해야하는 데이터 알아내기
 //    3. 주소와 데이터를 기반으로 메소드 생성
+
+//    이미지 업로드 기능
+    public static void updateProfilePhoto(Context context, String user_id, Bitmap bitmap, final JsonResponseHandler handler) {
+        String url = BASE_URL + "mobile/updateProfilePhoto";
+
+        Map<String, String> data = new HashMap<String, String>();
+        data.put("user_id", user_id);
+
+
+        AsyncHttpRequest.postWithImageFile(context, url, data, bitmap, "profile", new AsyncHttpRequest.HttpResponseHandler() {
+            @Override
+            public boolean onPrepare() {
+                return true;
+            }
+
+            @Override
+            public void onResponse(String response) {
+                System.out.println(response);
+                try {
+                    JSONObject json = new JSONObject(response);
+
+                    if (handler != null)
+                        handler.onResponse(json);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+
+            @Override
+            public void onCancelled() {
+
+            }
+        });
+    }
+
 
     // 회원 가입시 아이디 중복 체크
     public static void check_dupl_id(final Context context, final String id, final JsonResponseHandler handler) {

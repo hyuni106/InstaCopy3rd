@@ -19,7 +19,6 @@ import android.widget.TextView;
 import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.FollowNotifyAdatper;
 import kr.co.tjeit.instacopyproject3rd.adapter.WriteAdapter;
-import kr.co.tjeit.instacopyproject3rd.data.Tag;
 
 /**
  * Created by the on 2017-09-06.
@@ -42,6 +41,8 @@ public class NotifyFragment extends Fragment {
     private LinearLayout tab2;
     private android.widget.FrameLayout tabcontent;
     private TabHost tabHost;
+
+
 
     @Nullable
     @Override
@@ -92,6 +93,7 @@ public class NotifyFragment extends Fragment {
 
     private void setupEvents() {
 
+
         View.OnClickListener pageChangeListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +110,6 @@ public class NotifyFragment extends Fragment {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-
             }
 
             @Override
@@ -116,7 +117,6 @@ public class NotifyFragment extends Fragment {
 
                 // 선택된 탭으로 이동
                 tabHost.setCurrentTab(position);
-
 
             }
 //
@@ -131,7 +131,6 @@ public class NotifyFragment extends Fragment {
     class MyViewPagerAdapter extends FragmentPagerAdapter {
         public MyViewPagerAdapter(FragmentManager fm) {
             super(fm);
-
         }
 
         @Override
