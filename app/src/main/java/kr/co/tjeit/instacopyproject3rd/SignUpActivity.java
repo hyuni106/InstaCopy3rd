@@ -19,8 +19,6 @@ public class SignUpActivity extends BaseActivity {
 
     final int REQ_FOR_GALLERY = 1;
 
-
-    Bitmap myBitmap;
     private EditText idEdt;
     private EditText passwordEdt;
     private android.widget.ImageView checkImg;
