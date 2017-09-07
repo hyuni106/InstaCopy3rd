@@ -43,6 +43,7 @@ public class MyprofileFragment extends Fragment {
     private LinearLayout tab1Layout;
     private ListView myPicNewsfeedListView;
     private LinearLayout tab2Layout;
+//
 
     List<Post> myPostList = new ArrayList<>();
     NewsfeedAdapter newsfeedAdapter;
