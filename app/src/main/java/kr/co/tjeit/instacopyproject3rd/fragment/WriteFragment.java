@@ -136,8 +136,7 @@ public class WriteFragment extends Fragment {
     }
 
     private void setValuse() {
-        mAdapter = new WriteAdapter(getActivity(), postList);
-//        TODO - 메인화면에서 search 아이콘 클릭시 뻥하고 터짐..
+//        mAdapter = new WriteAdapter(getActivity(), postList);
         mainViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 
     }
@@ -148,7 +147,7 @@ public class WriteFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 5;
+            return 2;
         }
 
         @Override
