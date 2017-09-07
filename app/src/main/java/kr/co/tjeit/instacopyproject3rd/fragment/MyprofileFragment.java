@@ -1,12 +1,15 @@
 package kr.co.tjeit.instacopyproject3rd.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -16,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
-import kr.co.tjeit.instacopyproject3rd.adapter.GreedPictureAdapter;
+import kr.co.tjeit.instacopyproject3rd.adapter.GridPictureAdapter;
 import kr.co.tjeit.instacopyproject3rd.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
 
@@ -43,12 +46,14 @@ public class MyprofileFragment extends Fragment {
 
     List<Post> myPostList = new ArrayList<>();
     NewsfeedAdapter newsfeedAdapter;
-    GreedPictureAdapter greedPictureAdapter;
+    GridPictureAdapter greedPictureAdapter;
+    private android.widget.GridView gridview;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_myprofile, container, false);
+        this.gridview = (GridView) v.findViewById(R.id.gridview);
         this.tab2Layout = (LinearLayout) v.findViewById(R.id.tab2Layout);
         this.myPicNewsfeedListView = (ListView) v.findViewById(R.id.myPicNewsfeedListView);
         this.tab1Layout = (LinearLayout) v.findViewById(R.id.tab1Layout);
@@ -74,11 +79,13 @@ public class MyprofileFragment extends Fragment {
     }
 
     private void setValuse() {
-        greedPictureAdapter = new GreedPictureAdapter(getActivity(), myPostList);
+        greedPictureAdapter = new GridPictureAdapter(getActivity(), myPostList);
         myPicherListView.setAdapter(greedPictureAdapter);
 
         newsfeedAdapter = new NewsfeedAdapter(getActivity(), myPostList);
         myPicNewsfeedListView.setAdapter(newsfeedAdapter);
+
+        gridview.setAdapter(new ImageAdapter(getContext()));
     }
 
     public void settingVisible() {
@@ -102,5 +109,51 @@ public class MyprofileFragment extends Fragment {
         tab1Btn.setOnClickListener(tabClick);
         tab2Btn.setOnClickListener(tabClick);
     }
+
+    class ImageAdapter extends BaseAdapter {
+        private Context mContext;
+        List<String> imgList = new ArrayList<>();
+
+        // Constructor
+        public ImageAdapter(Context c) {
+            mContext = c;
+        }
+
+        public int getCount() {
+            return imgList.size();
+        }
+
+        public Object getItem(int position) {
+            return null;
+        }
+
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        // create a new ImageView for each item referenced by the Adapter
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView;
+
+            if (convertView == null) {
+                imageView = new ImageView(mContext);
+                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                imageView.setPadding(0, 0, 0, 0);
+            } else {
+                imageView = (ImageView) convertView;
+            }
+            imageView.setImageResource(mThumbIds[position]);
+            return imageView;
+        }
+
+    }
+
+    public Integer[] mThumbIds = {
+            R.drawable.center_empty, R.drawable.heart_empty,
+            R.drawable.heart_fill, R.drawable.home_empty,
+            R.drawable.home_fill, R.drawable.insta_logo,
+            R.drawable.insta_title
+    };
 
 }

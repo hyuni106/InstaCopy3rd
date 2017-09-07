@@ -17,12 +17,12 @@ import kr.co.tjeit.instacopyproject3rd.data.Post;
  * Created by the on 2017-09-06.
  */
 
-public class GreedPictureAdapter extends ArrayAdapter<Post> {
+public class GridPictureAdapter extends ArrayAdapter<Post> {
     Context mContext;
     List<Post> mList;
     LayoutInflater inf;
 
-    public GreedPictureAdapter(Context context, List<Post> list) {
+    public GridPictureAdapter(Context context, List<Post> list) {
         super(context, R.layout.list_mypic, list);
 
         mContext = context;
