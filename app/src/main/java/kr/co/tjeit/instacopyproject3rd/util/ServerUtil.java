@@ -35,7 +35,7 @@ public class ServerUtil {
 
     //    이미지 업로드 기능
     public static void make_post(Context context, String user_id, String content, Bitmap bitmap, final JsonResponseHandler handler) {
-        String url = BASE_URL + "mobile/make_post";
+        String url = BASE_URL + "insta/make_post";
 
         Map<String, String> data = new HashMap<String, String>();
         data.put("userId", user_id);

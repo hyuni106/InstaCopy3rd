@@ -78,15 +78,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
-
-            <ImageView
-                android:id="@+id/checkImg"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="30dp"
-                android:src="@mipmap/ic_launcher" />
-
             <EditText
                 android:id="@+id/nameEdt"
                 android:layout_width="match_parent"
@@ -96,6 +87,14 @@
                 android:background="@drawable/edittext_gray_round"
                 android:hint="이름 입력하는 곳"
                 android:padding="10dp" />
+
+            <ImageView
+                android:id="@+id/checkImg"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="30dp"
+                android:src="@mipmap/ic_launcher" />
 
         </FrameLayout>
 

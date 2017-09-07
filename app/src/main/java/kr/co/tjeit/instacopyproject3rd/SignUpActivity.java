@@ -3,6 +3,8 @@ package kr.co.tjeit.instacopyproject3rd;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,6 +26,8 @@ public class SignUpActivity extends BaseActivity {
     private android.widget.ImageView checkImg;
     private EditText nameEdt;
     private TextView nextTxt;
+
+    boolean isDupl = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,44 @@ public class SignUpActivity extends BaseActivity {
                                 }
                             });
                 }
+            }
+        });
+
+        checkImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isDupl = true;
+                ServerUtil.check_dupl_id(mContext, idEdt.getText().toString(), new ServerUtil.JsonResponseHandler() {
+                    @Override
+                    public void onResponse(JSONObject json) {
+                        try {
+                            if (!json.getBoolean("result")) {
+                                Toast.makeText(mContext, "사용가능", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(mContext, "중복된 아이디입니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+
+        idEdt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                isDupl = false;
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 
