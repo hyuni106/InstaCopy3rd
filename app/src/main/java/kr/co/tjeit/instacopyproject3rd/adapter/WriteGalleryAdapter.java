@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
@@ -15,17 +16,17 @@ import kr.co.tjeit.instacopyproject3rd.data.Place;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
 
 /**
- * Created by the on 2017-09-06.
+ * Created by ziO on 2017-09-06.
  */
 
-public class WriteAdapter extends ArrayAdapter<Post> {
+public class WriteGalleryAdapter extends ArrayAdapter<Post> {
 
     Context mContext;
     List<Post> mList;
     LayoutInflater inf;
 
-    public WriteAdapter(Context context, List<Post> list) {
-        super(context, R.layout.write_list_item, list);
+    public WriteGalleryAdapter(Context context, List<Post> list) {
+        super(context, R.layout.write_gallery_list_item, list);
         mContext = context;
         mList = list;
         inf = LayoutInflater.from(mContext);
@@ -37,8 +38,9 @@ public class WriteAdapter extends ArrayAdapter<Post> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View row = convertView;
         if (row == null) {
-            row = inf.inflate(R.layout.write_list_item, null);
+            row = inf.inflate(R.layout.write_gallery_list_item, null);
         }
+
 
         return row;
     }
@@ -47,4 +49,5 @@ public class WriteAdapter extends ArrayAdapter<Post> {
     public int getCount() {
         return 5;
     }
+
 }

@@ -43,6 +43,7 @@ public class MyprofileFragment extends Fragment {
     private LinearLayout tab1Layout;
     private ListView myPicNewsfeedListView;
     private LinearLayout tab2Layout;
+//
 
     List<Post> myPostList = new ArrayList<>();
     NewsfeedAdapter newsfeedAdapter;
@@ -137,7 +138,7 @@ public class MyprofileFragment extends Fragment {
 
             if (convertView == null) {
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(130, 130));
+                imageView.setLayoutParams(new GridView.LayoutParams(250, 250));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setPadding(0, 0, 0, 0);
             } else {
