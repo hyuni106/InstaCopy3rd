@@ -58,6 +58,12 @@ public class NotifyFragment extends Fragment {
         setValuse();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setValuse();
+    }
+
     private void setValuse() {
         mainViewPager.setAdapter(new MyViewPagerAdapter(getActivity().getSupportFragmentManager()));
         mainViewPager.setCurrentItem(1);
