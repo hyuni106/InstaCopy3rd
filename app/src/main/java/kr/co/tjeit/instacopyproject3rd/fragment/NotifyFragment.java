@@ -43,7 +43,7 @@ public class NotifyFragment extends Fragment {
     private TabHost tabHost;
 
 
-
+// 머지
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
