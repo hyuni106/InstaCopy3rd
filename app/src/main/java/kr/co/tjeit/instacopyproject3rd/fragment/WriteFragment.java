@@ -1,6 +1,8 @@
 package kr.co.tjeit.instacopyproject3rd.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -120,10 +122,15 @@ public class WriteFragment extends Fragment {
 
                 if (position == 0) {
                     menuTxt.setText("갤러리");
+
                 } else if (position == 1) {
                     menuTxt.setText("사진");
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivity(intent);
                 } else if (position == 2) {
                     menuTxt.setText("동영상");
+                    Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                    startActivity(intent);
                 }
             }
 
@@ -147,7 +154,7 @@ public class WriteFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
@@ -156,7 +163,9 @@ public class WriteFragment extends Fragment {
             if (position == 0) {
 
                 return new WriteGalleryFragment();
-            }  else {
+            } else if (position == 1)
+                return new MyprofileFragment();
+            else {
                 return new MyprofileFragment();
             }
 

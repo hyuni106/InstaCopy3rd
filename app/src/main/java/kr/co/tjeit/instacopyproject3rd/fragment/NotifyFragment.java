@@ -100,8 +100,7 @@ public class NotifyFragment extends Fragment {
                 int pageNum = Integer.parseInt(v.getTag().toString());
                 mainViewPager.setCurrentItem(pageNum);
 
-
-            }
+              }
         };
 
         tab1.setOnClickListener(pageChangeListener);
@@ -123,6 +122,7 @@ public class NotifyFragment extends Fragment {
 //
             @Override
             public void onPageScrollStateChanged(int state) {
+
 
             }
         });
