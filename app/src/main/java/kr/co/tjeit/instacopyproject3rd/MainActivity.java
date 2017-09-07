@@ -1,6 +1,8 @@
 package kr.co.tjeit.instacopyproject3rd;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -23,11 +25,14 @@ public class MainActivity extends BaseActivity {
     private android.widget.ImageView notifyBtn;
     private android.widget.ImageView myprofileBtn;
     private FrameLayout fragFrame;
+    private ImageView cameraBtn;
+    private ImageView messengerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         bindViews();
         setupEvents();
         setValues();
@@ -35,6 +40,17 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+//       메인 상단 왼쪽 카메카 버튼 클릭시 카메라 열림 기능
+
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(intent);
+            }
+        });
+
         View.OnClickListener fragView = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +107,9 @@ public class MainActivity extends BaseActivity {
         this.newsfeedBtn = (ImageView) findViewById(R.id.newsfeedBtn);
         this.fragFrame = (FrameLayout) findViewById(R.id.fragFrame);
         this.titleFramLayout = (FrameLayout) findViewById(R.id.titleFramLayout);
+        this.messengerBtn = (ImageView) findViewById(R.id.messengerBtn);
         this.titleImg = (ImageView) findViewById(R.id.titleImg);
+        this.cameraBtn = (ImageView) findViewById(R.id.cameraBtn);
     }
 }
 
