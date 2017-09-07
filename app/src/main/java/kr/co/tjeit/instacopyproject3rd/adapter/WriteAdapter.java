@@ -40,7 +40,6 @@ public class WriteAdapter extends ArrayAdapter<Post> {
             row = inf.inflate(R.layout.write_list_item, null);
         }
 
-
         return row;
     }
 

@@ -1,12 +1,12 @@
 package kr.co.tjeit.instacopyproject3rd.fragment;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,8 @@ import kr.co.tjeit.instacopyproject3rd.data.Post;
 
 public class WriteFragment extends Fragment {
 
+
+
     WriteAdapter mAdapter;
     List<Post> postList = new ArrayList<>();
     private LinearLayout tab1;
@@ -36,12 +39,18 @@ public class WriteFragment extends Fragment {
     private FrameLayout tabcontent;
     private TabWidget tabs;
     private TabHost tabHost;
+    private android.widget.TextView menuTxt;
+    private FrameLayout titleFramLayout;
+    private android.support.v4.view.ViewPager mainViewPager;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_write_item, container, false);
+        this.mainViewPager = (ViewPager) v.findViewById(R.id.mainViewPager);
+        this.titleFramLayout = (FrameLayout) v.findViewById(R.id.titleFramLayout);
+        this.menuTxt = (TextView) v.findViewById(R.id.menuTxt);
         this.tabHost = (TabHost) v.findViewById(R.id.tabHost);
         this.tabs = (TabWidget) v.findViewById(android.R.id.tabs);
         this.tabcontent = (FrameLayout) v.findViewById(android.R.id.tabcontent);
@@ -81,17 +90,78 @@ public class WriteFragment extends Fragment {
 
     }
 
-    private void setValuse() {
-        mAdapter = new WriteAdapter(getActivity(), postList);
-//        TODO - 메인화면에서 search 아이콘 클릭시 뻥하고 터짐..
-//        userListView.setAdapter(mAdapter);
-
-    }
 
     private void setupEvents() {
 
+        View.OnClickListener pageChangeListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pageNum = Integer.parseInt(v.getTag().toString());
+                mainViewPager.setCurrentItem(pageNum);
 
+            }
+        };
 
+        tab1.setOnClickListener(pageChangeListener);
+        tab2.setOnClickListener(pageChangeListener);
+        tab3.setOnClickListener(pageChangeListener);
+
+        mainViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                // 선택된 탭으로 이동
+                tabHost.setCurrentTab(position);
+
+                if (position == 0) {
+                    menuTxt.setText("갤러리");
+                } else if (position == 1) {
+                    menuTxt.setText("사진");
+                } else if (position == 2) {
+                    menuTxt.setText("동영상");
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
     }
+
+    private void setValuse() {
+        mAdapter = new WriteAdapter(getActivity(), postList);
+//        TODO - 메인화면에서 search 아이콘 클릭시 뻥하고 터짐..
+        mainViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
+
+    }
+    class MyPagerAdapter extends FragmentStatePagerAdapter {
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getCount() {
+            return 5;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+
+            if (position == 0) {
+
+                return new WriteGalleryFragment();
+            }  else {
+                return new MyprofileFragment();
+            }
+
+        }
+    }
+
 }

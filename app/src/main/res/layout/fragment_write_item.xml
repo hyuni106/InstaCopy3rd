@@ -5,6 +5,8 @@
     android:orientation="vertical">
 
 
+
+
     <FrameLayout
         android:id="@+id/titleFramLayout"
         android:layout_width="match_parent"
@@ -13,29 +15,29 @@
 
 
         <LinearLayout
-            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-               android:layout_marginLeft="10dp"
+                android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:src="@mipmap/ic_launcher_round" />
 
             <TextView
                 android:id="@+id/menuTxt"
-                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="갤러리 *" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
 
             <TextView
@@ -57,76 +59,93 @@
 
     </FrameLayout>
 
-    <TabHost
-        android:id="@+id/tabHost"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/mainViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TabHost
+            android:id="@+id/tabHost"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-
-            <FrameLayout
-                android:id="@android:id/tabcontent"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/tab1"
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_weight="1">
 
-                    <!--갤러리 Fragment-->
-                    <fragment
-                        class="kr.co.tjeit.instacopyproject3rd.fragment.WriteGalleryFragment"
+
+                    <LinearLayout
+                        android:id="@+id/tab1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:tag="0">
 
-                </LinearLayout>
+                        <!--갤러리 Fragment-->
+                        <!--<fragment-->
+                        <!--class="kr.co.tjeit.instacopyproject3rd.fragment.WriteGalleryFragment"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent" />-->
 
-                <LinearLayout
-                    android:id="@+id/tab2"
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:tag="1">
+
+                        <!--사진(카메라) Fragment-->
+                        <!--<fragment-->
+                        <!--class="kr.co.tjeit.instacopyproject3rd.fragment.SearchPeopleFragment"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent" />-->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:tag="2">
+
+                        <!--동영상 Fragment-->
+                        <!--<fragment-->
+                        <!--class="kr.co.tjeit.instacopyproject3rd.fragment.SearchTagsFragment"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent" />-->
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
+
+                <TabWidget
+                    android:id="@android:id/tabs"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!--사진(카메라) Fragment-->
-                    <fragment
-                        class="kr.co.tjeit.instacopyproject3rd.fragment.SearchPeopleFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <!--동영상 Fragment-->
-                    <fragment
-                        class="kr.co.tjeit.instacopyproject3rd.fragment.SearchTagsFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                </LinearLayout>
+                    android:layout_height="wrap_content" />
 
 
-            </FrameLayout>
-
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            </LinearLayout>
+        </TabHost>
 
 
-        </LinearLayout>
-    </TabHost>
+    </LinearLayout>
 
 
 </LinearLayout>

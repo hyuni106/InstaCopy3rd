@@ -19,7 +19,7 @@ import kr.co.tjeit.instacopyproject3rd.data.Post;
  * Created by ziO on 2017-09-06.
  */
 
-public class WriteGalleryFragment extends Fragment {
+public class WriteGalleryFragment extends android.support.v4.app.Fragment {
 
     WriteAdapter mAdapter;
     List<Post> postList = new ArrayList<>();
