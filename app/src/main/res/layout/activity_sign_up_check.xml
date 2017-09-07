@@ -31,6 +31,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/idEdt"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:padding="10dp"
@@ -41,6 +42,7 @@
 
 
         <ImageView
+            android:id="@+id/checkImg"
             android:layout_marginRight="30dp"
             android:layout_gravity="center_vertical|right"
             android:layout_width="20dp"
@@ -59,6 +61,7 @@
 해제하면 됩니다. 더 알아보기."/>
 
     <Button
+        android:id="@+id/nextBtn"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
