@@ -36,15 +36,30 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/idEdt"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/signup_edittext_background_item"
-            android:hint="아이디"
-            android:padding="10dp" />
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/idEdt"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/signup_edittext_background_item"
+                android:hint="아이디"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/idCheckBtn"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center|right"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:text="중복확인"/>
+
+
+        </FrameLayout>
 
         <EditText
             android:id="@+id/passwordEdt"
