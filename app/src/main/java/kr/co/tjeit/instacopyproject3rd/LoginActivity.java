@@ -19,6 +19,8 @@ import com.facebook.login.widget.LoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import kr.co.tjeit.instacopyproject3rd.data.User;
+import kr.co.tjeit.instacopyproject3rd.util.ContextUtil;
 import kr.co.tjeit.instacopyproject3rd.util.ServerUtil;
 
 public class LoginActivity extends BaseActivity {
@@ -54,6 +56,10 @@ public class LoginActivity extends BaseActivity {
                         public void onResponse(JSONObject json) {
                             try {
                                 if (json.getBoolean("result")) {
+                                    JSONObject user = json.getJSONObject("user");
+                                    JSONObject imgURL = user.getJSONObject("profileImgURL");
+                                    User loginUser = new User(user.getInt("id"), user.getString("userId"), user.getString("name"), imgURL.getString("url"), user.getString("profileComment"));
+                                    ContextUtil.setLoginUser(mContext, loginUser);
                                     Intent intent = new Intent(mContext, MainActivity.class);
                                     startActivity(intent);
                                     finish();

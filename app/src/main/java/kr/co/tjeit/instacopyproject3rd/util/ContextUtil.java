@@ -19,6 +19,7 @@ public class ContextUtil {
     private final static String loginUserID = "LOGIN_USER_NICKNAME";
     private final static String loginUserName = "LOGIN_USER_NAME";
     private final static String loginUserProfileURL = "LOGIN_USER_PROFILE_URL";
+    private final static String loginUserProfileComment = "LOGIN_USER_PROFILE_COMMENT";
 
 
     public static void setLoginUser(Context context, User inputUserData) {
@@ -29,7 +30,7 @@ public class ContextUtil {
         pref.edit().putString(loginUserID, inputUserData.getUserId()).commit();
         pref.edit().putString(loginUserName, inputUserData.getName()).commit();
         pref.edit().putString(loginUserProfileURL, inputUserData.getProfileImgURL()).commit();
-
+        pref.edit().putString(loginUserProfileComment, inputUserData.getProfileComment()).commit();
     }
 
     public static User getUserData(Context context) {
@@ -46,6 +47,7 @@ public class ContextUtil {
             loginUser.setUserId(pref.getString(loginUserID, ""));
             loginUser.setName(pref.getString(loginUserName, ""));
             loginUser.setProfileImgURL(pref.getString(loginUserProfileURL, ""));
+            loginUser.setProfileComment(pref.getString(loginUserProfileComment, ""));
 
         }
         else {
@@ -63,7 +65,7 @@ public class ContextUtil {
         pref.edit().putString(loginUserID, "").commit();
         pref.edit().putString(loginUserName, "").commit();
         pref.edit().putString(loginUserProfileURL, "").commit();
-
+        pref.edit().putString(loginUserProfileComment, "").commit();
     }
 
 

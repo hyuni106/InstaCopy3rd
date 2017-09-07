@@ -34,11 +34,12 @@ public class ServerUtil {
 //    3. 주소와 데이터를 기반으로 메소드 생성
 
 //    이미지 업로드 기능
-    public static void updateProfilePhoto(Context context, String user_id, Bitmap bitmap, final JsonResponseHandler handler) {
-        String url = BASE_URL + "mobile/updateProfilePhoto";
+    public static void make_post(Context context, String user_id, String content, Bitmap bitmap, final JsonResponseHandler handler) {
+        String url = BASE_URL + "mobile/make_post";
 
         Map<String, String> data = new HashMap<String, String>();
-        data.put("user_id", user_id);
+        data.put("userId", user_id);
+        data.put("content", content);
 
 
         AsyncHttpRequest.postWithImageFile(context, url, data, bitmap, "profile", new AsyncHttpRequest.HttpResponseHandler() {
