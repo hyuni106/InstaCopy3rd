@@ -73,46 +73,6 @@ public class ServerUtil {
     }
 
 
-    // 마이페이지
-    public static void mypage(final Context context, String userid, final JsonResponseHandler handler) {
-        String url = BASE_URL+"insta/mypage";
-        //		String registrationId = ContextUtil.getRegistrationId(context);
-
-        Map<String, String> data = new HashMap<String, String>();
-        data.put("user_id", userid);
-
-        AsyncHttpRequest.post(context, url,  data, false, new AsyncHttpRequest.HttpResponseHandler() {
-
-            @Override
-            public boolean onPrepare() {
-                return true;
-            }
-
-            @Override
-            public void onResponse(String response) {
-                System.out.println(response);
-                try {
-                    JSONObject json = new JSONObject(response);
-
-                    if (handler != null)
-                        handler.onResponse(json);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            @Override
-            public void onFinish() {
-
-            }
-
-            @Override
-            public void onCancelled() {
-
-            }
-
-        });
-    }
-
     // 로그인
     public static void sign_in(final Context context, String userid, String pw, final JsonResponseHandler handler) {
         String url = BASE_URL+"insta/sign_in";

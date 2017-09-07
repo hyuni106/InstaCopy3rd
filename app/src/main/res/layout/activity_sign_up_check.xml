@@ -30,16 +30,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/idEdt"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:padding="10dp"
-            android:background="@drawable/edittext_gray_round"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="아이디 입력하는 곳"/>
-
 
         <ImageView
             android:id="@+id/checkImg"
@@ -48,6 +38,16 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@mipmap/ic_launcher"/>
+
+        <EditText
+            android:id="@+id/idEdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_gray_round"
+            android:hint="아이디 입력하는 곳"
+            android:padding="10dp" />
 
     </FrameLayout>
 

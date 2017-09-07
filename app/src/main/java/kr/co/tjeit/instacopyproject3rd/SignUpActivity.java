@@ -2,38 +2,35 @@ package kr.co.tjeit.instacopyproject3rd;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 import kr.co.tjeit.instacopyproject3rd.util.ServerUtil;
-import kr.co.tjeit.instacopyproject3rd.util.SignUpCheckActivity;
 
 //dd
 public class SignUpActivity extends BaseActivity {
 
     final int REQ_FOR_GALLERY = 1;
 
-    private android.widget.TextView nextTxt;
-    private de.hdodenhof.circleimageview.CircleImageView signUpImg;
-    private android.widget.EditText nameEdt;
-    private android.widget.EditText passwordEdt;
-    private CircleImageView profileImg;
+
+    Bitmap myBitmap;
+    private EditText idEdt;
+    private EditText passwordEdt;
+    private android.widget.ImageView checkImg;
+    private EditText nameEdt;
+    private TextView nextTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
         bindViews();
         setupEvents();
         setValues();
@@ -41,63 +38,37 @@ public class SignUpActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
-
-        profileImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, REQ_FOR_GALLERY);
-            }
-        });
-
+//        TODO - 아이디 중복확인 필요
         nextTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (nameEdt.getText().toString().equals("")) {
+                if (idEdt.getText().toString().equals("")) {
                     Toast.makeText(mContext, "이름을 입력해주세요", Toast.LENGTH_SHORT).show();
                 } else if (passwordEdt.getText().toString().equals("")) {
                     Toast.makeText(mContext, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                } else if (!(nameEdt.getText().toString().equals("")) && !(passwordEdt.getText().toString().equals(""))) {
-                    Intent intent = new Intent(mContext, SignUpCheckActivity.class);
-                    intent.putExtra("name", nameEdt.getText().toString());
-                    intent.putExtra("pw", passwordEdt.getText().toString());
-                    startActivity(intent);
+                } else if (!(idEdt.getText().toString().equals("")) && !(passwordEdt.getText().toString().equals("")) && !(nameEdt.getText().toString().equals(""))) {
+                    ServerUtil.sign_up(mContext, idEdt.getText().toString(), passwordEdt.getText().toString(), nameEdt.getText().toString(),
+                            new ServerUtil.JsonResponseHandler() {
+                                @Override
+                                public void onResponse(JSONObject json) {
+                                    try {
+                                        if (json.getBoolean("result")) {
+                                            Toast.makeText(mContext, json.getString("message"), Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(mContext, MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
                 }
             }
         });
 
 
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ_FOR_GALLERY) {
-            if (resultCode == RESULT_OK) {
-                Uri uri = data.getData();
-                Toast.makeText(mContext, "서버에 이미지파일 업로드 완료", Toast.LENGTH_SHORT).show();
-
-//                try {
-//                    final Bitmap myBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-
-////                    ServerUtil.updateProfilePhoto(mContext, "아이디", myBitmap, new ServerUtil.JsonResponseHandler() {
-//                        @Override
-//                        public void onResponse(JSONObject json) {
-//                            Toast.makeText(mContext, "서버에 이미지파일 업로드 완료", Toast.LENGTH_SHORT).show();
-//                            profileImg.setImageBitmap(myBitmap);
-//
-//                        }
-//                    });
-//
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-            }
-        }
     }
 
     @Override
@@ -108,8 +79,9 @@ public class SignUpActivity extends BaseActivity {
     @Override
     public void bindViews() {
         this.nextTxt = (TextView) findViewById(R.id.nextTxt);
-        this.passwordEdt = (EditText) findViewById(R.id.passwordEdt);
         this.nameEdt = (EditText) findViewById(R.id.nameEdt);
-        this.profileImg = (CircleImageView) findViewById(R.id.profileImg);
+        this.checkImg = (ImageView) findViewById(R.id.checkImg);
+        this.passwordEdt = (EditText) findViewById(R.id.passwordEdt);
+        this.idEdt = (EditText) findViewById(R.id.idEdt);
     }
 }

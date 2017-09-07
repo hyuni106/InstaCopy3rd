@@ -1,5 +1,8 @@
 package kr.co.tjeit.instacopyproject3rd.util;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,20 +35,22 @@ public class SignUpCheckActivity extends BaseActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent();
                 String name = getIntent().getStringExtra("name");
                 String pw = getIntent().getStringExtra("pw");
-                ServerUtil.sign_up(mContext, idEdt.getText().toString(), pw, name, new ServerUtil.JsonResponseHandler() {
-                    @Override
-                    public void onResponse(JSONObject json) {
-                        try {
-                            if (json.getBoolean("result")) {
-
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+                Bitmap bitmap = (Bitmap)intent.getParcelableExtra("bitmap");
+//                ServerUtil.sign_up(mContext, idEdt.getText().toString(), pw, name, bitmap, new ServerUtil.JsonResponseHandler() {
+//                    @Override
+//                    public void onResponse(JSONObject json) {
+//                        try {
+//                            if (json.getBoolean("result")) {
+//
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                });
             }
         });
     }
