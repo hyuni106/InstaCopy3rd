@@ -19,7 +19,7 @@ public class ServerUtil {
     private final static String BASE_URL = "http://13.124.243.86/"; // 라이브서버
 //    private final static String BASE_URL = "http://share-tdd.com/"; // 개발서버
 
-//    JSON 처리 부분 인터페이스
+    //    JSON 처리 부분 인터페이스
     public interface JsonResponseHandler {
         void onResponse(JSONObject json);
     }
@@ -33,7 +33,7 @@ public class ServerUtil {
 //    2. 해당 기능을 사용하기 위해 우리가 제공해야하는 데이터 알아내기
 //    3. 주소와 데이터를 기반으로 메소드 생성
 
-//    이미지 업로드 기능
+    //    이미지 업로드 기능
     public static void make_post(Context context, String user_id, String content, Bitmap bitmap, final JsonResponseHandler handler) {
         String url = BASE_URL + "mobile/make_post";
 
@@ -76,14 +76,14 @@ public class ServerUtil {
 
     // 로그인
     public static void sign_in(final Context context, String userid, String pw, final JsonResponseHandler handler) {
-        String url = BASE_URL+"insta/sign_in";
+        String url = BASE_URL + "insta/sign_in";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();
         data.put("userId", userid);
         data.put("password", pw);
 
-        AsyncHttpRequest.post(context, url,  data, true, new AsyncHttpRequest.HttpResponseHandler() {
+        AsyncHttpRequest.post(context, url, data, true, new AsyncHttpRequest.HttpResponseHandler() {
 
             @Override
             public boolean onPrepare() {
@@ -102,6 +102,7 @@ public class ServerUtil {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onFinish() {
 
@@ -117,7 +118,7 @@ public class ServerUtil {
 
     // 회원 가입
     public static void sign_up(final Context context, String userid, String pw, String name, final JsonResponseHandler handler) {
-        String url = BASE_URL+"insta/sign_up";
+        String url = BASE_URL + "insta/sign_up";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();
@@ -125,7 +126,7 @@ public class ServerUtil {
         data.put("password", pw);
         data.put("name", name);
 
-        AsyncHttpRequest.post(context, url,  data, true, new AsyncHttpRequest.HttpResponseHandler() {
+        AsyncHttpRequest.post(context, url, data, true, new AsyncHttpRequest.HttpResponseHandler() {
 
             @Override
             public boolean onPrepare() {
@@ -144,6 +145,7 @@ public class ServerUtil {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onFinish() {
 
@@ -158,14 +160,14 @@ public class ServerUtil {
     }
 
     // 회원 가입시 아이디 중복 체크
-    public static void check_dupl_id(final Context context, final String id, final JsonResponseHandler handler) {
-        String url = BASE_URL+"insta/check_dupl_id";
+    public static void check_dupl_id(final Context context, final String userId, final JsonResponseHandler handler) {
+        String url = BASE_URL + "insta/check_dupl_id";
         //		String registrationId = ContextUtil.getRegistrationId(context);
 
         Map<String, String> data = new HashMap<String, String>();
-        data.put("user_id", id);
+        data.put("userId", userId);
 
-        AsyncHttpRequest.post(context, url,  data, false, new AsyncHttpRequest.HttpResponseHandler() {
+        AsyncHttpRequest.post(context, url, data, false, new AsyncHttpRequest.HttpResponseHandler() {
 
             @Override
             public boolean onPrepare() {
@@ -184,6 +186,7 @@ public class ServerUtil {
                     e.printStackTrace();
                 }
             }
+
             @Override
             public void onFinish() {
 
