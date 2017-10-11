@@ -16,7 +16,7 @@ public class ServerUtil {
 
     private static final String TAG = ServerUtil.class.getSimpleName();
 
-    private final static String BASE_URL = "http://13.124.243.86/"; // 라이브서버
+    private final static String BASE_URL = "http://52.78.126.147/"; // 라이브서버
 //    private final static String BASE_URL = "http://share-tdd.com/"; // 개발서버
 
     //    JSON 처리 부분 인터페이스
