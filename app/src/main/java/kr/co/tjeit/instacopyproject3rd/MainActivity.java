@@ -52,6 +52,7 @@ public class MainActivity extends BaseActivity {
         View.OnClickListener fragView = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                initIcon();
 //                하단 탭 클릭에 따른 화면 전환
                 switch (v.getId()) {
                     case R.id.newsfeedBtn:
@@ -59,12 +60,14 @@ public class MainActivity extends BaseActivity {
                                 .beginTransaction()
                                 .replace(R.id.fragFrame, new NewsfeedFragment())
                                 .commit();
+                        newsfeedBtn.setImageResource(R.drawable.newsfeed_on);
                         break;
                     case R.id.searchBtn:
                         getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.fragFrame, new SearchFragment())
                                 .commit();
+                        searchBtn.setImageResource(R.drawable.search_on);
                         break;
                     case R.id.writeBtn:
                         getSupportFragmentManager()
@@ -77,12 +80,14 @@ public class MainActivity extends BaseActivity {
                                 .beginTransaction()
                                 .replace(R.id.fragFrame, new NotifyFragment())
                                 .commit();
+                        notifyBtn.setImageResource(R.drawable.notify_on);
                         break;
                     case R.id.myprofileBtn:
                         getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.fragFrame, new MyprofileFragment())
                                 .commit();
+                        myprofileBtn.setImageResource(R.drawable.myprofile_fill);
                         break;
 
                 }
@@ -102,6 +107,13 @@ public class MainActivity extends BaseActivity {
         notifyBtn.setOnClickListener(fragView);
         myprofileBtn.setOnClickListener(fragView);
 
+    }
+
+    public void initIcon() {
+        newsfeedBtn.setImageResource(R.drawable.newsfeed_off);
+        searchBtn.setImageResource(R.drawable.search_off);
+        notifyBtn.setImageResource(R.drawable.notify_off);
+        myprofileBtn.setImageResource(R.drawable.myprofile_empty);
     }
 
     @Override

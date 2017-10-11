@@ -22,6 +22,7 @@ import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.GridPictureAdapter;
 import kr.co.tjeit.instacopyproject3rd.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
+import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
 /**
  * Created by the on 2017-09-06.
@@ -46,7 +47,6 @@ public class MyprofileFragment extends Fragment {
     private LinearLayout tab2Layout;
     private android.widget.GridView gridview;
 
-    List<Post> myPostList = new ArrayList<>();
     NewsfeedAdapter newsfeedAdapter;
     GridPictureAdapter greedPictureAdapter;
 
@@ -81,7 +81,7 @@ public class MyprofileFragment extends Fragment {
     }
 
     private void setValuse() {
-        newsfeedAdapter = new NewsfeedAdapter(getActivity(), myPostList);
+        newsfeedAdapter = new NewsfeedAdapter(getActivity(), GlobalData.postingList);
         myPicNewsfeedListView.setAdapter(newsfeedAdapter);
 
         gridview.setAdapter(new ImageAdapter(getContext()));

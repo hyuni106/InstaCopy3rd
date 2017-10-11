@@ -25,27 +25,6 @@ public class GlobalData {
         userList.add(new User(2, "hc", "현철", "tempURL", "보스"));
         userList.add(new User(3, "dy", "동윤", "tempURL", "중간보스"));
         userList.add(new User(4, "sy", "석영", "tempURL", "부하"));
-
-        postingList.clear();
-        postingList.add(new Post(1, "TempURL",
-                "1번 게시글입니다.", Calendar.getInstance()));
-
-//        첫 게시글의 댓글 채워넣기.
-        postingList.get(0).getReplies().add(new Reply(1, "1번게시글 1번댓글",
-                Calendar.getInstance()));
-        postingList.get(0).getReplies().add(new Reply(2, "1번게시글 2번댓글",
-                Calendar.getInstance()));
-        postingList.get(0).getReplies().add(new Reply(3, "1번게시글 3번댓글",
-                Calendar.getInstance()));
-        postingList.get(0).getReplies().add(new Reply(4, "1번게시글 4번댓글",
-                Calendar.getInstance()));
-        postingList.get(0).getReplies().add(new Reply(5, "1번게시글 5번댓글",
-                Calendar.getInstance()));
-
-        postingList.add(new Post(2, "TempURL",
-                "2번 게시글입니다.", Calendar.getInstance()));
-
-
     }
 
 

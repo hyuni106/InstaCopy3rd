@@ -14,6 +14,7 @@ import java.util.List;
 import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.SearchPeopleAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.User;
+import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
 /**
  * Created by the on 2017-09-05.
@@ -21,7 +22,6 @@ import kr.co.tjeit.instacopyproject3rd.data.User;
 
 public class SearchPeopleFragment extends Fragment {
     SearchPeopleAdapter mAdapter;
-    List<User> userList = new ArrayList<>();
     private ListView userListView;
 
     @Nullable
@@ -40,7 +40,7 @@ public class SearchPeopleFragment extends Fragment {
     }
 
     private void setValuse() {
-        mAdapter = new SearchPeopleAdapter(getActivity(), userList);
+        mAdapter = new SearchPeopleAdapter(getActivity(), GlobalData.userList);
         userListView.setAdapter(mAdapter);
     }
 
