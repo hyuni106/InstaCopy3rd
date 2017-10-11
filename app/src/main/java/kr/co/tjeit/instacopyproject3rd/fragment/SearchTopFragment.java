@@ -15,6 +15,7 @@ import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.SearchPeopleAdapter;
 import kr.co.tjeit.instacopyproject3rd.adapter.SearchTagsAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.User;
+import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
 /**
  * Created by the on 2017-09-05.
@@ -24,8 +25,6 @@ public class SearchTopFragment extends Fragment {
     private ListView userListView;
     private ListView resentSearchListView;
 
-    List<User> recommendUserList = new ArrayList<>();
-
     SearchPeopleAdapter searchPeopleAdapter;
 
     @Nullable
@@ -34,7 +33,6 @@ public class SearchTopFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_search_top, container, false);
         this.resentSearchListView = (ListView) v.findViewById(R.id.resentSearchListView);
         this.userListView = (ListView) v.findViewById(R.id.userListView);
-
         return v;
     }
 
@@ -46,7 +44,7 @@ public class SearchTopFragment extends Fragment {
     }
 
     private void setValues() {
-        searchPeopleAdapter = new SearchPeopleAdapter(getActivity(), recommendUserList);
+        searchPeopleAdapter = new SearchPeopleAdapter(getActivity(), GlobalData.userList);
         userListView.setAdapter(searchPeopleAdapter);
     }
 

@@ -22,6 +22,7 @@ import kr.co.tjeit.instacopyproject3rd.data.Post;
 public class FollowNotifyFragment extends Fragment {
     FollowNotifyAdatper followNotifyAdatper;
     List<Post> followerLikePost = new ArrayList<>();
+
     private android.widget.ListView followerNotiListView;
 
     @Nullable
@@ -29,7 +30,6 @@ public class FollowNotifyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_follow_notify, container, false);
         this.followerNotiListView = (ListView) v.findViewById(R.id.followerNotiListView);
-
         return v;
     }
 
@@ -41,6 +41,7 @@ public class FollowNotifyFragment extends Fragment {
     }
 
     private void setValues() {
+//        어댑터 연결
         followNotifyAdatper = new FollowNotifyAdatper(getActivity(), followerLikePost);
         followerNotiListView.setAdapter(followNotifyAdatper);
     }

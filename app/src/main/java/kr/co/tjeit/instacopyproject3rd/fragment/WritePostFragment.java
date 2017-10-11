@@ -36,8 +36,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class WritePostFragment extends android.support.v4.app.Fragment {
 
-    WriteAdapter mAdapter;
-    List<Post> postList = new ArrayList<>();
+//    binding에 필요한 변수
     private android.widget.ListView galleryListView;
     private android.widget.EditText postWriteEdt;
     private android.widget.Button okBtn;
@@ -52,11 +51,10 @@ public class WritePostFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_write_post_item, container, false);
+//        binding
         this.postImg = (ImageView) v.findViewById(R.id.postImg);
         this.okBtn = (Button) v.findViewById(R.id.okBtn);
         this.postWriteEdt = (EditText) v.findViewById(R.id.postWriteEdt);
-
-
         return v;
     }
 
@@ -69,8 +67,6 @@ public class WritePostFragment extends android.support.v4.app.Fragment {
 
 
     private void setValuse() {
-        mAdapter = new WriteAdapter(getActivity(), postList);
-//        galleryListView.setAdapter(mAdapter);
 
     }
 
@@ -78,6 +74,7 @@ public class WritePostFragment extends android.support.v4.app.Fragment {
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                포스팅 정보를 서버에 보냄
                 ServerUtil.make_post(getActivity(), ContextUtil.getUserData(getActivity()).getId() + "", postWriteEdt.getText().toString(), myBitmap,
                         new ServerUtil.JsonResponseHandler() {
                             @Override
@@ -87,6 +84,7 @@ public class WritePostFragment extends android.support.v4.app.Fragment {
                                         Toast.makeText(getActivity(), json.getString("message"), Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getActivity(), MainActivity.class);
                                         startActivity(intent);
+                                        getActivity().finish();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -112,33 +110,14 @@ public class WritePostFragment extends android.support.v4.app.Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQ_FOR_GALLERY) {
             if (resultCode == RESULT_OK) {
-//                서버에 프로필 사진 전송, 후처리.
-//                사진 전송 => Bitmap 따서 서버에 보낸다.
-
-//                1. Bitmap 얻어오기
                 Uri uri = data.getData();
-//                갤러리를 통해 받아온것? 선택된 사진이 어디에 있는지 위치 정보.
-
-//                경로를 찾아가서 해당 사진 파일을 Bitmap으로 받아와야함.
-//                MediaStore 클래스가 사진 파일 => 비트맵으로 변환해서 가져옴.
-
-//                try : 한번 시도해봐. try 내부는 언제 에러가 터질지 모르는 부분. (예외 발생 가능 지점)
                 try {
-//                uri 통해서 사진파일로 찾아감.
-//                사진파일 있으면, 비트맵으로 변환. (변환을 해주는 객체 : getContentResolver())
-//                그냥 이 문장만 쓰면 에러가 남. 왜? 예외처리 필요.
+//                uri 통해서 사진파일로 찾아가 비트맵으로 변환
                     myBitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
-
                     postImg.setImageBitmap(myBitmap);
                     postImg.setScaleType(ImageView.ScaleType.CENTER_CROP);
-
                 } catch (IOException e) {
-//                    예외가 실제로 발생하면 대처하는 부분 : catch
-//                    앱이 죽지 않고 실행상태를 유지하도록 대처하는 부분.
-
                     Toast.makeText(getActivity(), "사진을 불러오는 중에 에러가 발생했습니다.", Toast.LENGTH_SHORT).show();
-
-//                    어떤 예외가 발생했는지 로그로 기록.
                     e.printStackTrace();
                 }
 

@@ -39,6 +39,7 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/postImg"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:src="@mipmap/ic_launcher" />

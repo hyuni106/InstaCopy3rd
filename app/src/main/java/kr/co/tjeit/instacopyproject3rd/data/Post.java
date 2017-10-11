@@ -1,5 +1,8 @@
 package kr.co.tjeit.instacopyproject3rd.data;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,6 +28,22 @@ public class Post implements Serializable {
     }
 
     public Post(int i, String tempURL, String s, Calendar instance) {
+    }
+
+    public static Post getPostFromJson(JSONObject json) {
+        Post tmp = new Post();
+
+        try {
+            tmp.setPostingId(json.getInt("id"));
+            tmp.setImageURL(json.getJSONObject("imageURL").getString("url"));
+            tmp.setContent(json.getString("content"));
+            User writeUser = User.getUserFromJson(json.getJSONObject("user"));
+            tmp.setWriterData(writeUser);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return tmp;
     }
 
     public int getPostingId() {

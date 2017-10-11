@@ -16,7 +16,7 @@ public class ServerUtil {
 
     private static final String TAG = ServerUtil.class.getSimpleName();
 
-    private final static String BASE_URL = "http://13.124.243.86/"; // 라이브서버
+    private final static String BASE_URL = "http://52.78.126.147/"; // 라이브서버
 //    private final static String BASE_URL = "http://share-tdd.com/"; // 개발서버
 
     //    JSON 처리 부분 인터페이스
@@ -24,21 +24,12 @@ public class ServerUtil {
         void onResponse(JSONObject json);
     }
 
-
-    // 사용자 관련 함수 모음
-
-    // 회원 가입
-
-//    1. 원하는 기능을 제공하는 API 주소 알아내기
-//    2. 해당 기능을 사용하기 위해 우리가 제공해야하는 데이터 알아내기
-//    3. 주소와 데이터를 기반으로 메소드 생성
-
     //    이미지 업로드 기능
     public static void make_post(Context context, String user_id, String content, Bitmap bitmap, final JsonResponseHandler handler) {
         String url = BASE_URL + "insta/make_post";
 
         Map<String, String> data = new HashMap<String, String>();
-        data.put("userId", user_id);
+        data.put("user_id", user_id);
         data.put("content", content);
 
 
@@ -72,7 +63,6 @@ public class ServerUtil {
             }
         });
     }
-
 
     // 로그인
     public static void sign_in(final Context context, String userid, String pw, final JsonResponseHandler handler) {
@@ -166,6 +156,46 @@ public class ServerUtil {
 
         Map<String, String> data = new HashMap<String, String>();
         data.put("userId", userId);
+
+        AsyncHttpRequest.post(context, url, data, false, new AsyncHttpRequest.HttpResponseHandler() {
+
+            @Override
+            public boolean onPrepare() {
+                return true;
+            }
+
+            @Override
+            public void onResponse(String response) {
+                System.out.println(response);
+                try {
+                    JSONObject json = new JSONObject(response);
+
+                    if (handler != null)
+                        handler.onResponse(json);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+
+            @Override
+            public void onCancelled() {
+
+            }
+
+        });
+    }
+
+    // 모든 포스팅 가져오기기
+   public static void get_all_posts(final Context context, final JsonResponseHandler handler) {
+        String url = BASE_URL + "insta/get_all_posts";
+        //		String registrationId = ContextUtil.getRegistrationId(context);
+
+        Map<String, String> data = new HashMap<String, String>();
 
         AsyncHttpRequest.post(context, url, data, false, new AsyncHttpRequest.HttpResponseHandler() {
 

@@ -21,6 +21,7 @@ import kr.co.tjeit.instacopyproject3rd.data.Tag;
 
 public class SearchTagsFragment extends Fragment {
     private ListView tagListView;
+
     SearchTagsAdapter mAdapter;
     List<Tag> tagList = new ArrayList<>();
 
@@ -29,7 +30,6 @@ public class SearchTagsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search_tags, container, false);
         this.tagListView = (ListView) v.findViewById(R.id.tagListView);
-
         return v;
     }
 

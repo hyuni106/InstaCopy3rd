@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -39,11 +40,14 @@ public class SearchPeopleAdapter extends ArrayAdapter<User> {
             row = inf.inflate(R.layout.people_list_item, null);
         }
 
-        return row;
-    }
+        User data = mList.get(position);
 
-    @Override
-    public int getCount() {
-        return 5;
+        TextView userIdTxt = (TextView) row.findViewById(R.id.userIdTxt);
+        TextView userNameTxt = (TextView) row.findViewById(R.id.userNameTxt);
+
+        userIdTxt.setText(data.getUserId());
+        userNameTxt.setText(data.getName());
+
+        return row;
     }
 }

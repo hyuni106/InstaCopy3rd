@@ -22,10 +22,9 @@ import kr.co.tjeit.instacopyproject3rd.data.Like;
 
 public class LikeFragment extends Fragment {
 
-
-
     ListView followingListView;
     ListView myPostListView;
+
     FollowingAdapter followingAdapter;
     MyPostNotifyAdapter myPostNotifyAdapter;
     List<Like> likeList = new ArrayList<>();
@@ -47,16 +46,11 @@ public class LikeFragment extends Fragment {
     }
 
     private void setValues() {
-
         followingAdapter = new FollowingAdapter(getActivity(), likeList);
         followingListView.setAdapter(followingAdapter);
-
-
     }
 
     private void setupEvents() {
 
     }
-
-
 }

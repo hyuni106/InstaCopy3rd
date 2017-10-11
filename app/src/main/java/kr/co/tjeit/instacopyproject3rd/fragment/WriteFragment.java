@@ -30,10 +30,7 @@ import kr.co.tjeit.instacopyproject3rd.data.Post;
 
 public class WriteFragment extends Fragment {
 
-
-
-    WriteAdapter mAdapter;
-    List<Post> postList = new ArrayList<>();
+//    binding에 필요한 변수
     private LinearLayout tab1;
     private LinearLayout tab2;
     private LinearLayout tab3;
@@ -44,11 +41,15 @@ public class WriteFragment extends Fragment {
     private FrameLayout titleFramLayout;
     private android.support.v4.view.ViewPager mainViewPager;
 
+    WriteAdapter mAdapter;
+    List<Post> postList = new ArrayList<>();
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_write_item, container, false);
+//        binding
         this.mainViewPager = (ViewPager) v.findViewById(R.id.mainViewPager);
         this.titleFramLayout = (FrameLayout) v.findViewById(R.id.titleFramLayout);
         this.menuTxt = (TextView) v.findViewById(R.id.menuTxt);
@@ -58,8 +59,6 @@ public class WriteFragment extends Fragment {
         this.tab3 = (LinearLayout) v.findViewById(R.id.tab3);
         this.tab2 = (LinearLayout) v.findViewById(R.id.tab2);
         this.tab1 = (LinearLayout) v.findViewById(R.id.tab1);
-
-
         return v;
     }
 
@@ -93,7 +92,7 @@ public class WriteFragment extends Fragment {
 
 
     private void setupEvents() {
-
+//        탭의 태그를 받아와 ViewPager의 페이지 변경
         View.OnClickListener pageChangeListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,13 +120,14 @@ public class WriteFragment extends Fragment {
 
                 if (position == 0) {
                     menuTxt.setText("갤러리");
-
                 } else if (position == 1) {
                     menuTxt.setText("사진");
+//                    카메라 화면 실행
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivity(intent);
                 } else if (position == 2) {
                     menuTxt.setText("동영상");
+//                    카메라 동영상 촬영 화면 실행
                     Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
                     startActivity(intent);
                 }
@@ -142,10 +142,10 @@ public class WriteFragment extends Fragment {
     }
 
     private void setValuse() {
-//        mAdapter = new WriteAdapter(getActivity(), postList);
         mainViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 
     }
+
     class MyPagerAdapter extends FragmentStatePagerAdapter {
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -167,7 +167,6 @@ public class WriteFragment extends Fragment {
             else {
                 return new MyprofileFragment();
             }
-
         }
     }
 

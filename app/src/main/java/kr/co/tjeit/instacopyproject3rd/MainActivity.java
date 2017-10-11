@@ -13,10 +13,9 @@ import kr.co.tjeit.instacopyproject3rd.fragment.NotifyFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.SearchFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.WriteFragment;
 
-// 힝..
-
 public class MainActivity extends BaseActivity {
 
+//    binding에 필요한 변수
     private android.widget.ImageView titleImg;
     private android.widget.FrameLayout titleFramLayout;
     private android.support.v4.view.ViewPager mainViewPager;
@@ -33,7 +32,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         bindViews();
         setupEvents();
         setValues();
@@ -43,7 +41,6 @@ public class MainActivity extends BaseActivity {
     public void setupEvents() {
 
 //       메인 상단 왼쪽 카메카 버튼 클릭시 카메라 열림 기능
-
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +52,7 @@ public class MainActivity extends BaseActivity {
         View.OnClickListener fragView = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                하단 탭 클릭에 따른 화면 전환
                 switch (v.getId()) {
                     case R.id.newsfeedBtn:
                         getSupportFragmentManager()
@@ -108,6 +106,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setValues() {
+//        앱 실행 시 Newsfeed Fragment 화면 보여지게 설정
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragFrame, new NewsfeedFragment())

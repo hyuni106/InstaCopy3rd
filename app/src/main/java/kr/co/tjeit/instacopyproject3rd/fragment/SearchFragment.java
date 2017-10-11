@@ -20,6 +20,7 @@ import java.util.List;
 import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.SearchAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.Place;
+import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
 /**
  * Created by the on 2017-09-06.
@@ -27,6 +28,7 @@ import kr.co.tjeit.instacopyproject3rd.data.Place;
 
 public class SearchFragment extends Fragment {
 
+//    binding에 필요한 변수
     private ListView newsfeedListView;
     private android.widget.LinearLayout newsfeedLayout;
     private android.widget.ImageView backBtn;
@@ -43,6 +45,7 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search_item, container, false);
+//        binding
         this.tabHost = (TabHost) v.findViewById(R.id.tabHost);
         this.tabcontent = (FrameLayout) v.findViewById(android.R.id.tabcontent);
         this.tab4 = (LinearLayout) v.findViewById(R.id.tab4);
@@ -52,8 +55,6 @@ public class SearchFragment extends Fragment {
         this.tabs = (TabWidget) v.findViewById(android.R.id.tabs);
         this.searchEdt = (EditText) v.findViewById(R.id.searchEdt);
         this.backBtn = (ImageView) v.findViewById(R.id.backBtn);
-
-
         return v;
     }
 
@@ -89,11 +90,12 @@ public class SearchFragment extends Fragment {
     }
 
     private void setValuse() {
-
+        GlobalData.initGlobalData();
     }
 
     private void setupEvents() {
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+//            선택되는 탭에 따라 EditText의 hint 변경
             @Override
             public void onTabChanged(String tabId) {
                 searchEdt.setText("");

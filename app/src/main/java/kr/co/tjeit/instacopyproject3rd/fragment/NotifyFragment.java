@@ -26,8 +26,7 @@ import kr.co.tjeit.instacopyproject3rd.adapter.WriteAdapter;
 
 public class NotifyFragment extends Fragment {
 
-
-
+//    binding에 필요한 변수
     private TextView followerTxt;
     private TextView followerSelectLine;
     private LinearLayout followerLayout;
@@ -42,12 +41,11 @@ public class NotifyFragment extends Fragment {
     private android.widget.FrameLayout tabcontent;
     private TabHost tabHost;
 
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_notify_item, container, false);
+//        binding
         this.tabHost = (TabHost) v.findViewById(R.id.tabHost);
         this.notificationLayout = (LinearLayout) v.findViewById(R.id.notificationLayout);
         this.mainViewPager = (ViewPager) v.findViewById(R.id.mainViewPager);
@@ -55,8 +53,6 @@ public class NotifyFragment extends Fragment {
         this.tab2 = (LinearLayout) v.findViewById(R.id.tab2);
         this.tab1 = (LinearLayout) v.findViewById(R.id.tab1);
         this.tabs = (TabWidget) v.findViewById(android.R.id.tabs);
-
-
         return v;
     }
 
@@ -81,8 +77,6 @@ public class NotifyFragment extends Fragment {
         TabHost.TabSpec ts2 = tabHost.newTabSpec("tab2").setIndicator("YOU");
         ts2.setContent(R.id.tab2);
         tabHost.addTab(ts2);
-
-
     }
 
 
@@ -91,7 +85,6 @@ public class NotifyFragment extends Fragment {
     }
 
     private void setupEvents() {
-
         View.OnClickListener pageChangeListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,12 +105,10 @@ public class NotifyFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-
                 // 선택된 탭으로 이동
                 tabHost.setCurrentTab(position);
-
             }
-//
+
             @Override
             public void onPageScrollStateChanged(int state) {
 

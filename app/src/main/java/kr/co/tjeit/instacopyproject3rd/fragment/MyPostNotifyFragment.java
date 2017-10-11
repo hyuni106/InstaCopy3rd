@@ -22,6 +22,7 @@ import kr.co.tjeit.instacopyproject3rd.data.User;
 public class MyPostNotifyFragment extends Fragment {
 
     private android.widget.ListView myPostNotiListView;
+
     MyPostNotifyAdapter myPostNotifyAdapter;
     List<User> followUser = new ArrayList<>();
 
@@ -30,7 +31,6 @@ public class MyPostNotifyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_my_post_notify, container, false);
         this.myPostNotiListView = (ListView) v.findViewById(R.id.myPostNotiListView);
-
         return v;
     }
 

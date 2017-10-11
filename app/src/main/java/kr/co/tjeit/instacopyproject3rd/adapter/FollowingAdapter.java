@@ -42,8 +42,6 @@ public class FollowingAdapter extends ArrayAdapter<Like> {
             row = inf.inflate(R.layout.following_fragment_list_item, null);
         }
 
-//        Like data = mList.get(position);
-
         ImageView roundImg = (ImageView) row.findViewById(R.id.roundImg);
         ImageView photoImg = (ImageView) row.findViewById(R.id.photoImg);
         TextView userLikeTxt = (TextView) row.findViewById(R.id.userLikeTxt);

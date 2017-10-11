@@ -1,5 +1,8 @@
 package kr.co.tjeit.instacopyproject3rd.data;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,22 @@ public class User implements Serializable {
         this.name = name;
         this.profileImgURL = profileImgURL;
         this.profileComment = profileComment;
+    }
+
+    public static User getUserFromJson(JSONObject json) {
+        User tmp = new User();
+
+        try {
+            tmp.setId(json.getInt("id"));
+            tmp.setUserId(json.getString("userId"));
+            tmp.setName(json.getString("name"));
+            tmp.setProfileImgURL(json.getJSONObject("profileImgURL").getString("url"));
+            tmp.setProfileComment(json.getString("profileComment"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return tmp;
     }
 
     public int getId() {

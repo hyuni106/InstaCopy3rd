@@ -29,6 +29,7 @@ import kr.co.tjeit.instacopyproject3rd.data.Post;
 
 public class MyprofileFragment extends Fragment {
 
+//    binding에 필요한 변수
     private ImageView userProfileImg;
     private TextView userNameTxt;
     private TextView uploadCountTxt;
@@ -43,17 +44,17 @@ public class MyprofileFragment extends Fragment {
     private LinearLayout tab1Layout;
     private ListView myPicNewsfeedListView;
     private LinearLayout tab2Layout;
-//
+    private android.widget.GridView gridview;
 
     List<Post> myPostList = new ArrayList<>();
     NewsfeedAdapter newsfeedAdapter;
     GridPictureAdapter greedPictureAdapter;
-    private android.widget.GridView gridview;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_myprofile, container, false);
+//        binding 코드
         this.gridview = (GridView) v.findViewById(R.id.gridview);
         this.tab2Layout = (LinearLayout) v.findViewById(R.id.tab2Layout);
         this.myPicNewsfeedListView = (ListView) v.findViewById(R.id.myPicNewsfeedListView);
@@ -80,9 +81,6 @@ public class MyprofileFragment extends Fragment {
     }
 
     private void setValuse() {
-        greedPictureAdapter = new GridPictureAdapter(getActivity(), myPostList);
-        myPicherListView.setAdapter(greedPictureAdapter);
-
         newsfeedAdapter = new NewsfeedAdapter(getActivity(), myPostList);
         myPicNewsfeedListView.setAdapter(newsfeedAdapter);
 
@@ -113,13 +111,13 @@ public class MyprofileFragment extends Fragment {
 
     class ImageAdapter extends BaseAdapter {
         private Context mContext;
-//        List<String> imgList = new ArrayList<>();
 
         // Constructor
         public ImageAdapter(Context c) {
             mContext = c;
         }
 
+//        배열의 길이만큼 생성
         public int getCount() {
             return mThumbIds.length;
         }
@@ -132,7 +130,7 @@ public class MyprofileFragment extends Fragment {
             return 0;
         }
 
-        // create a new ImageView for each item referenced by the Adapter
+//        각각의 이미지가 들어갈 ImageView 생성
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView;
 
@@ -150,6 +148,7 @@ public class MyprofileFragment extends Fragment {
 
     }
 
+//    임시 이미지 배열
     public Integer[] mThumbIds = {
             R.drawable.center_empty, R.drawable.heart_empty,
             R.drawable.heart_fill, R.drawable.home_empty,

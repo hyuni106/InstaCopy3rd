@@ -29,7 +29,6 @@ public class SearchPeopleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search_people, container, false);
         this.userListView = (ListView) v.findViewById(R.id.userListView);
-
         return v;
     }
 
@@ -43,7 +42,6 @@ public class SearchPeopleFragment extends Fragment {
     private void setValuse() {
         mAdapter = new SearchPeopleAdapter(getActivity(), userList);
         userListView.setAdapter(mAdapter);
-
     }
 
     private void setupEvents() {

@@ -23,6 +23,7 @@ import kr.co.tjeit.instacopyproject3rd.data.Place;
 public class SearchPlacesFragment extends Fragment {
     private android.widget.LinearLayout nearPlaceLayout;
     private ListView placeListView;
+
     SearchPlacesAdapter mAdapter;
     List<Place> placeList = new ArrayList<>();
 
@@ -32,7 +33,6 @@ public class SearchPlacesFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_search_places, container, false);
         this.placeListView = (ListView) v.findViewById(R.id.placeListView);
         this.nearPlaceLayout = (LinearLayout) v.findViewById(R.id.nearPlaceLayout);
-
         return v;
     }
 
@@ -49,6 +49,6 @@ public class SearchPlacesFragment extends Fragment {
     }
 
     private void setupEvents() {
-//        nearPlaceLayout 에 setOnClickListener 만들기
+
     }
 }
