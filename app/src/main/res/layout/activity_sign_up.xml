@@ -47,7 +47,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/signup_edittext_background_item"
-                android:hint="아이디"
+                android:hint="전화번호, 사용자 이름 또는 이메일"
                 android:padding="10dp" />
 
             <Button
