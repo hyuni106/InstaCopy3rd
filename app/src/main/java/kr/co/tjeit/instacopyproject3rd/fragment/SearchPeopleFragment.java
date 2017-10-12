@@ -3,9 +3,12 @@ package kr.co.tjeit.instacopyproject3rd.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -21,8 +24,9 @@ import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
  */
 
 public class SearchPeopleFragment extends Fragment {
-    SearchPeopleAdapter mAdapter;
+
     private ListView userListView;
+    SearchPeopleAdapter mAdapter;
 
     @Nullable
     @Override

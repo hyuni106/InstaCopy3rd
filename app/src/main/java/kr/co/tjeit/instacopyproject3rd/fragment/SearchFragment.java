@@ -3,6 +3,8 @@ package kr.co.tjeit.instacopyproject3rd.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ import java.util.List;
 
 import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.SearchAdapter;
+import kr.co.tjeit.instacopyproject3rd.adapter.SearchPeopleAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.Place;
 import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
@@ -27,6 +30,7 @@ import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
  */
 
 public class SearchFragment extends Fragment {
+    public static SearchFragment frag;
 
 //    binding에 필요한 변수
     private ListView newsfeedListView;
@@ -45,6 +49,7 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search_item, container, false);
+        frag = this;
 //        binding
         this.tabHost = (TabHost) v.findViewById(R.id.tabHost);
         this.tabcontent = (FrameLayout) v.findViewById(android.R.id.tabcontent);
