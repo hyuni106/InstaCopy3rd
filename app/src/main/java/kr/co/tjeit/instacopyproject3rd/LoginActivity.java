@@ -14,6 +14,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -42,6 +43,8 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        // 페이스북 로그인 후 앱종료 하고나면 자동으로 로그아웃하게
+        LoginManager.getInstance().logOut();
         bindViews();
         setupEvents();
         setValues();
@@ -132,6 +135,10 @@ public class LoginActivity extends BaseActivity {
         fbLoginBtn.registerCallback(cm, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                // 페이스북 로그인에 성공했을 경우 메인화면으로
+                Intent intent = new Intent(mContext, MainActivity.class);
+                startActivity(intent);
+                finish();
 
             }
 
