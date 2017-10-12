@@ -1,6 +1,7 @@
 package kr.co.tjeit.instacopyproject3rd;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,12 +30,13 @@ import kr.co.tjeit.instacopyproject3rd.util.ServerUtil;
 public class LoginActivity extends BaseActivity {
 
     CallbackManager cm; // 페이스북 콜백매니저
-//    binding 필요한 변수
+    //    binding 필요한 변수
     private com.facebook.login.widget.LoginButton fbLoginBtn;
     private android.widget.Button loginBtn;
     private android.widget.TextView signupTxt;
     private android.widget.EditText idEdt;
     private android.widget.EditText pwEdt;
+    private TextView reLoginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public class LoginActivity extends BaseActivity {
                 } else if (pwEdt.getText().toString().equals("")) {
 //                    비밀번호가 입력되지 않았을 경우
                     Toast.makeText(mContext, "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
-                } else if (!(idEdt.getText().toString().equals("")) && !(pwEdt.getText().toString().equals(""))){
+                } else if (!(idEdt.getText().toString().equals("")) && !(pwEdt.getText().toString().equals(""))) {
 //                    로그인을 위한 서버 통신
                     ServerUtil.sign_in(mContext, idEdt.getText().toString(), pwEdt.getText().toString(), new ServerUtil.JsonResponseHandler() {
                         @Override
@@ -90,7 +92,13 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-
+        reLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://help.instagram.com/"));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -108,7 +116,7 @@ public class LoginActivity extends BaseActivity {
                 try {
                     GlobalData.postingList.clear();
                     JSONArray posts = json.getJSONArray("posts");
-                    for (int i = posts.length()-1; i >= 0; i--) {
+                    for (int i = posts.length() - 1; i >= 0; i--) {
                         Post tmp = Post.getPostFromJson(posts.getJSONObject(i));
                         GlobalData.postingList.add(tmp);
                     }
@@ -149,10 +157,11 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void bindViews() {
-        this.pwEdt = (EditText) findViewById(R.id.pwEdt);
-        this.idEdt = (EditText) findViewById(R.id.idEdt);
         this.signupTxt = (TextView) findViewById(R.id.signupTxt);
         this.fbLoginBtn = (LoginButton) findViewById(R.id.fbLoginBtn);
+        this.reLoginBtn = (TextView) findViewById(R.id.reLoginBtn);
         this.loginBtn = (Button) findViewById(R.id.loginBtn);
+        this.pwEdt = (EditText) findViewById(R.id.pwEdt);
+        this.idEdt = (EditText) findViewById(R.id.idEdt);
     }
 }
