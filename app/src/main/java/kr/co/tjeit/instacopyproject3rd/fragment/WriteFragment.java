@@ -121,7 +121,7 @@ public class WriteFragment extends Fragment {
             } else if (position == 1)
                 return new CameraFragment();
             else {
-                return new MyprofileFragment();
+                return new VideoFragment();
             }
         }
 
