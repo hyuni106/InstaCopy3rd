@@ -56,6 +56,13 @@ public class SignUpActivity extends BaseActivity {
                                 builder.setPositiveButton("확인", null);
                                 builder.show();
                             }
+
+                            // 아이디 입력란이 빈공간일 경우 사용해도 좋은 아이디라고 뜨는거 문제 해결
+                            else if (idEdt.getText().toString().equals("")) {
+                                Toast.makeText(mContext, "아이디를 입력해주세요", Toast.LENGTH_SHORT).show();
+                                
+                            }
+                            
                             else {
                                 Toast.makeText(mContext, "사용해도 좋은 아이디 입니다.", Toast.LENGTH_SHORT).show();
                                 isIdDupl = true;
