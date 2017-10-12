@@ -44,10 +44,11 @@ public class NewsfeedFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         setupEvents();
         setValuse();
+        getPost();
     }
 
     private void setValuse() {
-        mAdapter = new NewsfeedAdapter(getActivity(), GlobalData.postingList);
+        mAdapter = new NewsfeedAdapter(getContext(), GlobalData.postingList);
         newsfeedListView.setAdapter(mAdapter);
     }
 
@@ -55,25 +56,34 @@ public class NewsfeedFragment extends Fragment {
         swipelayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                ServerUtil.get_all_posts(getContext(), new ServerUtil.JsonResponseHandler() {
-                    @Override
-                    public void onResponse(JSONObject json) {
-                        try {
-                            GlobalData.postingList.clear();
-                            JSONArray posts = json.getJSONArray("posts");
-                            for (int i = posts.length()-1; i >= 0; i--) {
-                                Post tmp = Post.getPostFromJson(posts.getJSONObject(i));
-                                GlobalData.postingList.add(tmp);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-
+                getPost();
                 swipelayout.setRefreshing(false);
             }
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getPost();
+    }
+
+    public void getPost() {
+        ServerUtil.get_all_posts(getActivity(), new ServerUtil.JsonResponseHandler() {
+            @Override
+            public void onResponse(JSONObject json) {
+                try {
+                    GlobalData.postingList.clear();
+                    JSONArray posts = json.getJSONArray("posts");
+                    for (int i = posts.length() - 1; i >= 0; i--) {
+                        Post tmp = Post.getPostFromJson(posts.getJSONObject(i));
+                        GlobalData.postingList.add(tmp);
+                    }
+                    mAdapter.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }

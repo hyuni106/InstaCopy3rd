@@ -8,11 +8,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import kr.co.tjeit.instacopyproject3rd.data.Post;
 import kr.co.tjeit.instacopyproject3rd.fragment.MyprofileFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NotifyFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.SearchFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.WriteFragment;
+import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
+import kr.co.tjeit.instacopyproject3rd.util.ServerUtil;
 
 public class MainActivity extends BaseActivity {
 
