@@ -29,6 +29,7 @@ import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 import kr.co.tjeit.instacopyproject3rd.util.ServerUtil;
 
 public class LoginActivity extends BaseActivity {
+    public static LoginActivity activity;
 
     CallbackManager cm; // 페이스북 콜백매니저
     //    binding 필요한 변수
@@ -43,6 +44,7 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        activity = this;
         // 페이스북 로그인 후 앱종료 하고나면 자동으로 로그아웃하게
         LoginManager.getInstance().logOut();
         bindViews();

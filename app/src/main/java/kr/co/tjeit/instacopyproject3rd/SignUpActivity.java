@@ -94,6 +94,7 @@ public class SignUpActivity extends BaseActivity {
                                             Toast.makeText(mContext, json.getString("message"), Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(mContext, MainActivity.class);
                                             startActivity(intent);
+                                            LoginActivity.activity.finish();
                                             finish();
                                         }
                                     } catch (JSONException e) {
