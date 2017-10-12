@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +24,8 @@ import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.GridPictureAdapter;
 import kr.co.tjeit.instacopyproject3rd.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
+import kr.co.tjeit.instacopyproject3rd.data.User;
+import kr.co.tjeit.instacopyproject3rd.util.ContextUtil;
 import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
 /**
@@ -29,6 +33,7 @@ import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
  */
 
 public class MyprofileFragment extends Fragment {
+
 
 //    binding에 필요한 변수
     private ImageView userProfileImg;
@@ -85,6 +90,9 @@ public class MyprofileFragment extends Fragment {
         myPicNewsfeedListView.setAdapter(newsfeedAdapter);
 
         gridview.setAdapter(new ImageAdapter(getContext()));
+
+        userNameTxt.setText(ContextUtil.getUserData(getContext()).getName());
+
     }
 
     public void settingVisible() {
