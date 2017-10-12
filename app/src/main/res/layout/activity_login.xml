@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_gray_round"
-                android:hint="전화번호, 사용자 이름 또는 이메일"
+                android:hint="아이디"
                 android:inputType="text"
                 android:padding="15dp" />
 
