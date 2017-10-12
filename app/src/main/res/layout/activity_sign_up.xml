@@ -102,6 +102,7 @@
                 android:layout_marginRight="30dp"
                 android:src="@mipmap/ic_launcher" />
 
+
             <EditText
                 android:id="@+id/nameEdt"
                 android:layout_width="match_parent"
@@ -110,6 +111,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/edittext_gray_round"
                 android:hint="이름 입력하는 곳"
+                android:inputType="text"
                 android:padding="10dp" />
 
         </FrameLayout>
