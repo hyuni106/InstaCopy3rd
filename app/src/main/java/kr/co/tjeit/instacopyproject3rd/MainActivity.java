@@ -6,6 +6,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import kr.co.tjeit.instacopyproject3rd.fragment.MyprofileFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment;
@@ -15,7 +16,10 @@ import kr.co.tjeit.instacopyproject3rd.fragment.WriteFragment;
 
 public class MainActivity extends BaseActivity {
 
-//    binding에 필요한 변수
+    private static final long FINISH_INTERVAL_TIME = 2000;
+    private long backPressedTime = 0;
+
+    //    binding에 필요한 변수
     private android.widget.ImageView titleImg;
     private android.widget.FrameLayout titleFramLayout;
     private android.support.v4.view.ViewPager mainViewPager;
@@ -38,7 +42,27 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+        long tempTime = System.currentTimeMillis();
+        long intervalTime = tempTime - backPressedTime;
+
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
+        {
+            super.onBackPressed();
+        }
+        else
+        {
+            backPressedTime = tempTime;
+            Toast.makeText(mContext, "한 번 더 누르면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    @Override
     public void setupEvents() {
+
+        
 
 //       메인 상단 왼쪽 카메카 버튼 클릭시 카메라 열림 기능
         cameraBtn.setOnClickListener(new View.OnClickListener() {
