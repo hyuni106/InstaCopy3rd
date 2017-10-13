@@ -1,16 +1,14 @@
 package kr.co.tjeit.instacopyproject3rd;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.gun0912.tedpermission.PermissionListener;
@@ -23,11 +21,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import kr.co.tjeit.instacopyproject3rd.data.Post;
-import kr.co.tjeit.instacopyproject3rd.fragment.MyprofileFragment;
-import kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment;
-import kr.co.tjeit.instacopyproject3rd.fragment.NotifyFragment;
-import kr.co.tjeit.instacopyproject3rd.fragment.SearchFragment;
-import kr.co.tjeit.instacopyproject3rd.fragment.WriteFragment;
 import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 import kr.co.tjeit.instacopyproject3rd.util.ServerUtil;
 
@@ -45,10 +38,17 @@ public class MainActivity extends BaseActivity {
     private android.widget.ImageView writeBtn;
     private android.widget.ImageView notifyBtn;
     private android.widget.ImageView myprofileBtn;
-    private FrameLayout fragFrame;
     private ImageView cameraBtn;
     private ImageView messengerBtn;
+    private android.widget.LinearLayout newsfeedLayout;
+    private android.widget.LinearLayout searchLayout;
+    private android.widget.LinearLayout writeLayout;
+    private android.widget.LinearLayout notifyLayout;
+    private android.widget.LinearLayout myProfileLayout;
+    private ListView newsfeedListView;
+
     private boolean pmOk = false;
+
 
 
     @Override
@@ -94,40 +94,28 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 initIcon();
+                initLayout();
 //                하단 탭 클릭에 따른 화면 전환
                 switch (v.getId()) {
                     case R.id.newsfeedBtn:
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragFrame, new NewsfeedFragment())
-                                .commit();
-                        newsfeedBtn.setImageResource(R.drawable.newsfeed_on);
+                        if (newsfeedLayout.getVisibility() == View.GONE) {
+                            newsfeedLayout.setVisibility(View.VISIBLE);
+                            newsfeedBtn.setImageResource(R.drawable.newsfeed_on);
+                        }
                         break;
                     case R.id.searchBtn:
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragFrame, new SearchFragment())
-                                .commit();
+                        searchLayout.setVisibility(View.VISIBLE);
                         searchBtn.setImageResource(R.drawable.search_on);
                         break;
                     case R.id.writeBtn:
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragFrame, new WriteFragment())
-                                .commit();
+                        writeLayout.setVisibility(View.VISIBLE);
                         break;
                     case R.id.notifyBtn:
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragFrame, new NotifyFragment())
-                                .commit();
+                        notifyLayout.setVisibility(View.VISIBLE);
                         notifyBtn.setImageResource(R.drawable.notify_on);
                         break;
                     case R.id.myprofileBtn:
-                        getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragFrame, new MyprofileFragment())
-                                .commit();
+                        myProfileLayout.setVisibility(View.VISIBLE);
                         myprofileBtn.setImageResource(R.drawable.myprofile_fill);
                         break;
 
@@ -155,6 +143,14 @@ public class MainActivity extends BaseActivity {
         searchBtn.setImageResource(R.drawable.search_off);
         notifyBtn.setImageResource(R.drawable.notify_off);
         myprofileBtn.setImageResource(R.drawable.myprofile_empty);
+    }
+
+    public void initLayout() {
+        newsfeedLayout.setVisibility(View.GONE);
+        searchLayout.setVisibility(View.GONE);
+        writeLayout.setVisibility(View.GONE);
+        notifyLayout.setVisibility(View.GONE);
+        myProfileLayout.setVisibility(View.GONE);
     }
 
     @Override
@@ -197,23 +193,21 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
-
-//        앱 실행 시 Newsfeed Fragment 화면 보여지게 설정
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragFrame, new NewsfeedFragment())
-                .commit();
-
     }
 
     @Override
     public void bindViews() {
+        newsfeedListView = (ListView) findViewById(R.id.newsfeedListView);
         this.myprofileBtn = (ImageView) findViewById(R.id.myprofileBtn);
         this.notifyBtn = (ImageView) findViewById(R.id.notifyBtn);
         this.writeBtn = (ImageView) findViewById(R.id.writeBtn);
         this.searchBtn = (ImageView) findViewById(R.id.searchBtn);
         this.newsfeedBtn = (ImageView) findViewById(R.id.newsfeedBtn);
-        this.fragFrame = (FrameLayout) findViewById(R.id.fragFrame);
+        this.myProfileLayout = (LinearLayout) findViewById(R.id.myProfileLayout);
+        this.notifyLayout = (LinearLayout) findViewById(R.id.notifyLayout);
+        this.writeLayout = (LinearLayout) findViewById(R.id.writeLayout);
+        this.searchLayout = (LinearLayout) findViewById(R.id.searchLayout);
+        this.newsfeedLayout = (LinearLayout) findViewById(R.id.newsfeedLayout);
         this.titleFramLayout = (FrameLayout) findViewById(R.id.titleFramLayout);
         this.messengerBtn = (ImageView) findViewById(R.id.messengerBtn);
         this.titleImg = (ImageView) findViewById(R.id.titleImg);
