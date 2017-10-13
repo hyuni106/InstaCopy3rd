@@ -7,133 +7,138 @@
     android:orientation="vertical"
     tools:context="kr.co.tjeit.instacopyproject3rd.SignUpActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center|bottom"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="match_parent">
 
-        <ImageView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/insta_title"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <!--<de.hdodenhof.circleimageview.CircleImageView-->
-            <!--android:id="@+id/profileImg"-->
-            <!--android:layout_width="100dp"-->
-            <!--android:layout_height="100dp"-->
-            <!--android:src="@mipmap/ic_launcher"-->
-            <!--app:civ_border_color="#FF000000"-->
-            <!--app:civ_border_width="2dp" />-->
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/idEdt"
-                android:inputType="text"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/signup_edittext_background_item"
-                android:hint="전화번호, 사용자 이름 또는 이메일"
-                android:padding="10dp" />
+                android:layout_marginTop="30dp"
+                android:gravity="center|bottom"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <Button
-                android:id="@+id/idCheckBtn"
-                android:layout_marginRight="30dp"
-                android:layout_gravity="center|right"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:text="중복확인"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/insta_title" />
 
+            </LinearLayout>
 
-        </FrameLayout>
-
-        <EditText
-            android:id="@+id/passwordEdt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/signup_edittext_background_item"
-            android:hint="비밀번호"
-            android:inputType="textPassword"
-            android:padding="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="사용자 이름 만들기"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="사용자 이름을 추가하거나 추천 이름을 사용하세요.\n언제든지 변경할 수 있습니다."
-            android:textColor="@color/black" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-
-
-            <ImageView
-                android:id="@+id/checkImg"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical|right"
-                android:layout_marginRight="30dp"
-                android:src="@mipmap/ic_launcher" />
-
-
-            <EditText
-                android:id="@+id/nameEdt"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/edittext_gray_round"
-                android:hint="이름 입력하는 곳"
-                android:inputType="text"
-                android:padding="10dp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
 
-        </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+                    <EditText
+                        android:id="@+id/idEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/signup_edittext_background_item"
+                        android:hint="전화번호, 사용자 이름 또는 이메일"
+                        android:inputType="text"
+                        android:padding="10dp" />
 
-        <TextView
-            android:id="@+id/nextTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/login_button_blue"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="다음"
-            android:textColor="@color/white" />
+                    <Button
+                        android:id="@+id/idCheckBtn"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center|right"
+                        android:layout_marginRight="30dp"
+                        android:text="중복확인" />
 
 
-    </LinearLayout>
+                </FrameLayout>
 
+                <EditText
+                    android:id="@+id/passwordEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/signup_edittext_background_item"
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="사용자 이름 만들기"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="사용자 이름을 추가하거나 추천 이름을 사용하세요.\n언제든지 변경할 수 있습니다."
+                    android:textColor="@color/black" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+
+                    <ImageView
+                        android:id="@+id/checkImg"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_marginRight="30dp"
+                        android:src="@mipmap/ic_launcher" />
+
+
+                    <EditText
+                        android:id="@+id/nameEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/edittext_gray_round"
+                        android:hint="이름 입력하는 곳"
+                        android:inputType="text"
+                        android:padding="10dp" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/nextTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/login_button_blue"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="다음"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
