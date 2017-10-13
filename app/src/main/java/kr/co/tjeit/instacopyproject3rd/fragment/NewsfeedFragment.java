@@ -1,5 +1,6 @@
 package kr.co.tjeit.instacopyproject3rd.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,12 +8,14 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import kr.co.tjeit.instacopyproject3rd.NewsfeedDetailView;
 import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
@@ -74,6 +77,16 @@ public class NewsfeedFragment extends Fragment {
                 swipelayout.setRefreshing(false);
             }
         });
+
+        newsfeedListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), NewsfeedDetailView.class);
+                intent.putExtra("뉴스피드", GlobalData.postingList.get(position));
+                startActivity(intent);
+            }
+        });
+
     }
 
 }
