@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,7 @@ import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.GridPictureAdapter;
 import kr.co.tjeit.instacopyproject3rd.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
+import kr.co.tjeit.instacopyproject3rd.data.User;
 import kr.co.tjeit.instacopyproject3rd.util.ContextUtil;
 import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
@@ -33,13 +36,14 @@ import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
 public class MyprofileFragment extends Fragment {
 
+
 //    binding에 필요한 변수
     private ImageView userProfileImg;
     private TextView userNameTxt;
     private TextView uploadCountTxt;
     private TextView followerTxt;
     private TextView followingTxt;
-    private Button profileBtn;
+    private Button ProfileBtn;
     private ImageView tab1Btn;
     private ImageView tab2Btn;
     private ImageView tab3Btn;
@@ -67,7 +71,7 @@ public class MyprofileFragment extends Fragment {
         this.tab3Btn = (ImageView) v.findViewById(R.id.tab3Btn);
         this.tab2Btn = (ImageView) v.findViewById(R.id.tab2Btn);
         this.tab1Btn = (ImageView) v.findViewById(R.id.tab1Btn);
-        this.profileBtn = (Button) v.findViewById(R.id.profileBtn);
+        this.ProfileBtn = (Button) v.findViewById(R.id.ProfileBtn);
         this.followingTxt = (TextView) v.findViewById(R.id.followingTxt);
         this.followerTxt = (TextView) v.findViewById(R.id.followerTxt);
         this.uploadCountTxt = (TextView) v.findViewById(R.id.uploadCountTxt);
