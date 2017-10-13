@@ -3,9 +3,6 @@ package kr.co.tjeit.instacopyproject3rd.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +14,8 @@ import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import kr.co.tjeit.instacopyproject3rd.MainActivity;
 import kr.co.tjeit.instacopyproject3rd.R;
-import kr.co.tjeit.instacopyproject3rd.adapter.SearchAdapter;
-import kr.co.tjeit.instacopyproject3rd.adapter.SearchPeopleAdapter;
-import kr.co.tjeit.instacopyproject3rd.data.Place;
 import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
 /**
@@ -45,6 +37,7 @@ public class SearchFragment extends Fragment {
     private LinearLayout tab4;
     private android.widget.FrameLayout tabcontent;
     private android.widget.TabHost tabHost;
+    private ImageView backLayoutBtn;
 
     @Nullable
     @Override
@@ -60,7 +53,7 @@ public class SearchFragment extends Fragment {
         this.tab1 = (LinearLayout) v.findViewById(R.id.tab1);
         this.tabs = (TabWidget) v.findViewById(android.R.id.tabs);
         this.searchEdt = (EditText) v.findViewById(R.id.searchEdt);
-        this.backBtn = (ImageView) v.findViewById(R.id.backBtn);
+        this.backLayoutBtn = (ImageView) v.findViewById(R.id.backLayoutBtn);
         return v;
     }
 
@@ -101,10 +94,13 @@ public class SearchFragment extends Fragment {
 
     private void setupEvents() {
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        backLayoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.fragFrame, new SearchMainFragment()).commit();
+                LinearLayout searchMainLayout = (LinearLayout) MainActivity.act.findViewById(R.id.searchMainLayout);
+                LinearLayout searchLayout = (LinearLayout) MainActivity.act.findViewById(R.id.searchLayout);
+                searchMainLayout.setVisibility(View.VISIBLE);
+                searchLayout.setVisibility(View.GONE);
             }
         });
 

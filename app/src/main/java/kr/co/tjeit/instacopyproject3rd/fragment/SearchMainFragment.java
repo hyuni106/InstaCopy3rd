@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import kr.co.tjeit.instacopyproject3rd.MainActivity;
 import kr.co.tjeit.instacopyproject3rd.R;
 
 /**
@@ -21,19 +22,17 @@ public class SearchMainFragment extends Fragment {
     public static SearchMainFragment frag;
     private android.widget.ImageView backBtn;
     private android.widget.EditText searchEdt;
-    private LinearLayout searchLayout;
+    private LinearLayout searchEdtLayout;
+    private ImageView searchBtnImg;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_search_main_item, container, false);
-        this.searchLayout = (LinearLayout) v.findViewById(R.id.searchLayout);
+        this.searchBtnImg = (ImageView) v.findViewById(R.id.searchBtnImg);
+        this.searchEdtLayout = (LinearLayout) v.findViewById(R.id.searchEdtLayout);
         this.searchEdt = (EditText) v.findViewById(R.id.searchEdt);
-        this.backBtn = (ImageView) v.findViewById(R.id.backBtn);
         frag = this;
-
-        this.searchLayout = (LinearLayout) v.findViewById(R.id.searchLayout);
-
         return v;
     }
 
@@ -48,34 +47,26 @@ public class SearchMainFragment extends Fragment {
 
     private void setValuse() {
 
-//        searchLayout.requestFocus();
-//        backBtn.requestFocus();
-//        searchEdt.requestFocus();
-//
-//        searchLayout.setFocusableInTouchMode(true);
-//        backBtn.setFocusableInTouchMode(true);
-//        searchEdt.setFocusableInTouchMode(true);
-//
-//
-
     }
 
     private void setupEvents() {
-
-        searchLayout.setOnClickListener(new View.OnClickListener() {
+        searchBtnImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                searchLayout.setVisibility(View.GONE);
-                getFragmentManager().beginTransaction().replace(R.id.fragFrame, new SearchFragment()).commit();
-
-
+                LinearLayout searchMainLayout = (LinearLayout) MainActivity.act.findViewById(R.id.searchMainLayout);
+                LinearLayout searchLayout = (LinearLayout) MainActivity.act.findViewById(R.id.searchLayout);
+                searchMainLayout.setVisibility(View.GONE);
+                searchLayout.setVisibility(View.VISIBLE);
             }
         });
 
         searchEdt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                getFragmentManager().beginTransaction().replace(R.id.fragFrame, new SearchFragment()).commit();
+                LinearLayout searchMainLayout = (LinearLayout) MainActivity.act.findViewById(R.id.searchMainLayout);
+                LinearLayout searchLayout = (LinearLayout) MainActivity.act.findViewById(R.id.searchLayout);
+                searchMainLayout.setVisibility(View.GONE);
+                searchLayout.setVisibility(View.VISIBLE);
             }
         });
 

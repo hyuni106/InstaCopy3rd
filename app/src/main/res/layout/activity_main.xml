@@ -67,6 +67,20 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/searchMainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="kr.co.tjeit.instacopyproject3rd.fragment.SearchMainFragment" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/searchLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
