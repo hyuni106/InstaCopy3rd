@@ -12,7 +12,7 @@
         android:layout_height="160dp"
         android:background="#AA3744"
         android:gravity="center_vertical"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <ImageView
             android:layout_width="match_parent"

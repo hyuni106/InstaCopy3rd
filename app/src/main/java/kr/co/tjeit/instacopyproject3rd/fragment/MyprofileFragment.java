@@ -22,6 +22,7 @@ import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.GridPictureAdapter;
 import kr.co.tjeit.instacopyproject3rd.adapter.NewsfeedAdapter;
 import kr.co.tjeit.instacopyproject3rd.data.Post;
+import kr.co.tjeit.instacopyproject3rd.util.ContextUtil;
 import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 
 /**
@@ -85,6 +86,7 @@ public class MyprofileFragment extends Fragment {
         myPicNewsfeedListView.setAdapter(newsfeedAdapter);
 
         gridview.setAdapter(new ImageAdapter(getContext()));
+        userNameTxt.setText(ContextUtil.getUserData(getActivity()).getName());
     }
 
     public void settingVisible() {
