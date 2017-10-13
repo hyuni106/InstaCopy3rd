@@ -1,12 +1,22 @@
 package kr.co.tjeit.instacopyproject3rd;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
+
+import java.util.ArrayList;
 
 import kr.co.tjeit.instacopyproject3rd.fragment.MyprofileFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment;
@@ -31,6 +41,8 @@ public class MainActivity extends BaseActivity {
     private FrameLayout fragFrame;
     private ImageView cameraBtn;
     private ImageView messengerBtn;
+    private boolean pmOk = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +71,10 @@ public class MainActivity extends BaseActivity {
 
     }
 
+
     @Override
     public void setupEvents() {
 
-        
-
-//       메인 상단 왼쪽 카메카 버튼 클릭시 카메라 열림 기능
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,11 +152,36 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setValues() {
+
+        if (pmOk = false) {
+            PermissionListener permissionlistener = new PermissionListener() {
+                @Override
+                public void onPermissionGranted() {
+                    Toast.makeText(MainActivity.this, "권한 허가", Toast.LENGTH_SHORT).show();
+                    pmOk = true;
+                }
+
+                @Override
+                public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                    Toast.makeText(MainActivity.this, "권한이 거부되었습니다.\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                    pmOk = false;
+                }
+            };
+
+            TedPermission.with(mContext)
+                    .setPermissionListener(permissionlistener)
+                    .setDeniedMessage("카메라와 저장 폴더에 접근하려면 설정에서 접근 권한을 ON으로 설정해 주세요.")
+                    .setPermissions(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
+                    .check();
+        }
+
+
 //        앱 실행 시 Newsfeed Fragment 화면 보여지게 설정
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragFrame, new NewsfeedFragment())
                 .commit();
+
     }
 
     @Override
@@ -162,6 +197,7 @@ public class MainActivity extends BaseActivity {
         this.titleImg = (ImageView) findViewById(R.id.titleImg);
         this.cameraBtn = (ImageView) findViewById(R.id.cameraBtn);
     }
+
 }
 
 
