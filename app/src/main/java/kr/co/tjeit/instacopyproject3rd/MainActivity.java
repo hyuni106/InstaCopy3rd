@@ -192,22 +192,6 @@ public class MainActivity extends BaseActivity {
                     .check();
         }
 
-        ServerUtil.get_all_posts(mContext, new ServerUtil.JsonResponseHandler() {
-            @Override
-            public void onResponse(JSONObject json) {
-                try {
-                    GlobalData.postingList.clear();
-                    JSONArray posts = json.getJSONArray("posts");
-                    for (int i = posts.length() - 1; i >= 0; i--) {
-                        Post tmp = Post.getPostFromJson(posts.getJSONObject(i));
-                        GlobalData.postingList.add(tmp);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
         TedPermission.with(this)
                 .setPermissionListener(permissionlistener)
                 .setRationaleMessage("구글 로그인을 하기 위해서는 주소록 접근 권한이 필요해요")
