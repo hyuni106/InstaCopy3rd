@@ -60,6 +60,22 @@ public class MainActivity extends BaseActivity {
         setValues();
     }
 
+    PermissionListener permissionlistener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            Toast.makeText(mContext, "권한 허가", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            Toast.makeText(mContext, "권한 거부\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+        }
+
+
+    };
+
+
+
     @Override
     public void onBackPressed() {
 
@@ -204,6 +220,14 @@ public class MainActivity extends BaseActivity {
                 .replace(R.id.fragFrame, new NewsfeedFragment())
                 .commit();
 
+        TedPermission.with(this)
+                .setPermissionListener(permissionlistener)
+                .setRationaleMessage("구글 로그인을 하기 위해서는 주소록 접근 권한이 필요해요")
+                .setDeniedMessage("왜 거부하셨어요...\n하지만 [설정] > [권한] 에서 권한을 허용할 수 있어요.")
+                .setPermissions(Manifest.permission.READ_CONTACTS)
+                .check();
+
+
     }
 
     @Override
@@ -219,7 +243,6 @@ public class MainActivity extends BaseActivity {
         this.titleImg = (ImageView) findViewById(R.id.titleImg);
         this.cameraBtn = (ImageView) findViewById(R.id.cameraBtn);
     }
-
 }
 
 
