@@ -27,6 +27,7 @@ import kr.co.tjeit.instacopyproject3rd.fragment.MyprofileFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NotifyFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.SearchFragment;
+import kr.co.tjeit.instacopyproject3rd.fragment.SearchMainFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.WriteFragment;
 import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
 import kr.co.tjeit.instacopyproject3rd.util.ServerUtil;
@@ -106,9 +107,11 @@ public class MainActivity extends BaseActivity {
                     case R.id.searchBtn:
                         getSupportFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.fragFrame, new SearchFragment())
+                                .replace(R.id.fragFrame, new SearchMainFragment())
                                 .commit();
                         searchBtn.setImageResource(R.drawable.search_on);
+
+
                         break;
                     case R.id.writeBtn:
                         getSupportFragmentManager()

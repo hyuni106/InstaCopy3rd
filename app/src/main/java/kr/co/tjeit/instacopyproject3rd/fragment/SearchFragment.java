@@ -3,6 +3,7 @@ package kr.co.tjeit.instacopyproject3rd.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -99,6 +100,15 @@ public class SearchFragment extends Fragment {
     }
 
     private void setupEvents() {
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.fragFrame, new SearchMainFragment()).commit();
+            }
+        });
+
+
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
 //            선택되는 탭에 따라 EditText의 hint 변경
             @Override
