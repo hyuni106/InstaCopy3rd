@@ -7,11 +7,6 @@
     android:orientation="vertical"
     tools:context="kr.co.tjeit.instacopyproject3rd.NewsfeedDetailView">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -164,10 +159,6 @@
             <!--android:layout_centerHorizontal="true"-->
             <!--android:layout_alignParentRight="true"-->
             <!--android:text="닫기"/>-->
-
-
-    </RelativeLayout>
-
 
 
 </LinearLayout>

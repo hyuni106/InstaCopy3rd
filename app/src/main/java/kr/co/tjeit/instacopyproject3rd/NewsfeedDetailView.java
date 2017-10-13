@@ -67,7 +67,6 @@ public class NewsfeedDetailView extends BaseActivity {
 
     @Override
     public void bindViews() {
-        this.closeBtn = (Button) findViewById(R.id.closeBtn);
         this.contentTxt = (TextView) findViewById(R.id.contentTxt);
         this.mySaveImg = (ImageView) findViewById(R.id.mySaveImg);
         this.messengersendbutton = (ImageView) findViewById(R.id.messenger_send_button);

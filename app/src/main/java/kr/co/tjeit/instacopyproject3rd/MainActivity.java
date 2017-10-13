@@ -215,12 +215,6 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-//        앱 실행 시 Newsfeed Fragment 화면 보여지게 설정
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragFrame, new NewsfeedFragment())
-                .commit();
-
         TedPermission.with(this)
                 .setPermissionListener(permissionlistener)
                 .setRationaleMessage("구글 로그인을 하기 위해서는 주소록 접근 권한이 필요해요")
