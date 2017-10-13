@@ -19,7 +19,7 @@ public class Post implements Serializable {
     private String content;
     private Calendar createdAt;
 
-    private User writerData;
+    public User writerData;
 
     private List<Reply> replies = new ArrayList<>();
     private List<User> likeUser = new ArrayList<>();
