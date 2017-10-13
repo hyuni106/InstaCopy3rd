@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity {
     private ListView newsfeedListView;
 
     private boolean pmOk = false;
-
+    private FrameLayout fragFrame;
 
 
     @Override
@@ -66,12 +66,9 @@ public class MainActivity extends BaseActivity {
         long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
-        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
-        {
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
             super.onBackPressed();
-        }
-        else
-        {
+        } else {
             backPressedTime = tempTime;
             Toast.makeText(mContext, "한 번 더 누르면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
@@ -123,8 +120,7 @@ public class MainActivity extends BaseActivity {
                 // writeBtn 이 눌렸을 경우에만 최상단 프레임레이아웃 감춰줌
                 if (v.getId() == writeBtn.getId()) {
                     titleFramLayout.setVisibility(View.GONE);
-                }
-                else {
+                } else {
                     titleFramLayout.setVisibility(View.VISIBLE);
                 }
             }
@@ -197,7 +193,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void bindViews() {
-        newsfeedListView = (ListView) findViewById(R.id.newsfeedListView);
+        this.fragFrame = (FrameLayout) findViewById(R.id.fragFrame);
         this.myprofileBtn = (ImageView) findViewById(R.id.myprofileBtn);
         this.notifyBtn = (ImageView) findViewById(R.id.notifyBtn);
         this.writeBtn = (ImageView) findViewById(R.id.writeBtn);
