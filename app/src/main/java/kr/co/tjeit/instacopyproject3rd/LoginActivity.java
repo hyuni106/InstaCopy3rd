@@ -115,21 +115,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void setValues() {
-        ServerUtil.get_all_posts(mContext, new ServerUtil.JsonResponseHandler() {
-            @Override
-            public void onResponse(JSONObject json) {
-                try {
-                    GlobalData.postingList.clear();
-                    JSONArray posts = json.getJSONArray("posts");
-                    for (int i = posts.length() - 1; i >= 0; i--) {
-                        Post tmp = Post.getPostFromJson(posts.getJSONObject(i));
-                        GlobalData.postingList.add(tmp);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+
 
         cm = CallbackManager.Factory.create();
 

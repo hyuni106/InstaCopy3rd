@@ -16,13 +16,20 @@ import android.widget.Toast;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
+import kr.co.tjeit.instacopyproject3rd.data.Post;
 import kr.co.tjeit.instacopyproject3rd.fragment.MyprofileFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NewsfeedFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.NotifyFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.SearchFragment;
 import kr.co.tjeit.instacopyproject3rd.fragment.WriteFragment;
+import kr.co.tjeit.instacopyproject3rd.util.GlobalData;
+import kr.co.tjeit.instacopyproject3rd.util.ServerUtil;
 
 public class MainActivity extends BaseActivity {
 
@@ -175,6 +182,21 @@ public class MainActivity extends BaseActivity {
                     .check();
         }
 
+        ServerUtil.get_all_posts(mContext, new ServerUtil.JsonResponseHandler() {
+            @Override
+            public void onResponse(JSONObject json) {
+                try {
+                    GlobalData.postingList.clear();
+                    JSONArray posts = json.getJSONArray("posts");
+                    for (int i = posts.length() - 1; i >= 0; i--) {
+                        Post tmp = Post.getPostFromJson(posts.getJSONObject(i));
+                        GlobalData.postingList.add(tmp);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
 //        앱 실행 시 Newsfeed Fragment 화면 보여지게 설정
         getSupportFragmentManager()
