@@ -1,6 +1,7 @@
 package kr.co.tjeit.instacopyproject3rd.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.tjeit.instacopyproject3rd.MyProfileSettingActivity;
 import kr.co.tjeit.instacopyproject3rd.R;
 import kr.co.tjeit.instacopyproject3rd.adapter.GridPictureAdapter;
 import kr.co.tjeit.instacopyproject3rd.adapter.NewsfeedAdapter;
@@ -37,7 +39,7 @@ public class MyprofileFragment extends Fragment {
     private TextView uploadCountTxt;
     private TextView followerTxt;
     private TextView followingTxt;
-    private Button ProfileBtn;
+    private Button profileBtn;
     private ImageView tab1Btn;
     private ImageView tab2Btn;
     private ImageView tab3Btn;
@@ -65,7 +67,7 @@ public class MyprofileFragment extends Fragment {
         this.tab3Btn = (ImageView) v.findViewById(R.id.tab3Btn);
         this.tab2Btn = (ImageView) v.findViewById(R.id.tab2Btn);
         this.tab1Btn = (ImageView) v.findViewById(R.id.tab1Btn);
-        this.ProfileBtn = (Button) v.findViewById(R.id.ProfileBtn);
+        this.profileBtn = (Button) v.findViewById(R.id.profileBtn);
         this.followingTxt = (TextView) v.findViewById(R.id.followingTxt);
         this.followerTxt = (TextView) v.findViewById(R.id.followerTxt);
         this.uploadCountTxt = (TextView) v.findViewById(R.id.uploadCountTxt);
@@ -109,6 +111,15 @@ public class MyprofileFragment extends Fragment {
 
         tab1Btn.setOnClickListener(tabClick);
         tab2Btn.setOnClickListener(tabClick);
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getActivity(), MyProfileSettingActivity.class);
+                // TODO 프로필이름, 닉네임변경 기능 추가해야함.
+                startActivity(myIntent);
+            }
+        });
     }
 
     class ImageAdapter extends BaseAdapter {

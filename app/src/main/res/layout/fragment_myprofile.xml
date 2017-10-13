@@ -129,7 +129,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/ProfileBtn"
+                    android:id="@+id/profileBtn"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_margin="5dp"
